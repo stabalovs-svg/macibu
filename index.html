@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GoDrive – Mācību materiāli</title>
+<style>
+/* Brand tokens: placeholders, replace with the school's official values */
+:root{--brand:#12355b;--brand-ink:#fff;--sig:#ffc233;--bg:#f3f5f7;--ink:#14212e;--mute:#5a6876;--card:#fff;--line:#d5dce3;--road:#4a5056;--walk:#c9c5b8;--mark:#e9e6d6;--acc:#ffc233;--p1:#7d8b99;--p2:#9a8478;--me:#2f7fd1;
+--f:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#0b2239;--bg:#10161c;--ink:#e8edf1;--mute:#9aa6b1;--card:#1a232c;--line:#2f3b46;--road:#2c3136;--walk:#5a574d;--mark:#c9c6b6;--me:#4a96e8}}
+:root[data-theme="dark"]{--brand:#0b2239;--bg:#10161c;--ink:#e8edf1;--mute:#9aa6b1;--card:#1a232c;--line:#2f3b46;--road:#2c3136;--walk:#5a574d;--mark:#c9c6b6;--me:#4a96e8}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--f)}
+a{color:inherit}
+header{background:var(--brand);color:var(--brand-ink);border-bottom:4px solid var(--sig)}
+.hd{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.35rem;text-decoration:none}
+.logo i{display:inline-block;width:26px;height:14px;background:var(--sig);border-radius:4px;position:relative}
+.logo i:after{content:"";position:absolute;right:3px;top:3px;width:6px;height:8px;background:var(--brand);border-radius:1px}
+nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+nav a,nav button{color:var(--brand-ink);text-decoration:none;padding:8px 12px;border-radius:6px;font:inherit;background:none;border:1px solid transparent;cursor:pointer;min-height:40px}
+nav a:hover,nav button:hover{background:rgba(255,255,255,.14)}
+nav a.on{border-color:var(--sig)}
+nav button{border-color:rgba(255,255,255,.4)}
+:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
+main{max-width:1080px;margin:0 auto;padding:22px 16px 40px}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 8px}
+.lead{color:var(--mute);max-width:60ch;margin:0 0 22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sig);border-radius:8px;padding:18px;text-decoration:none}
+.card h2{margin:0 0 6px;font-size:1.2rem}
+.card p{margin:0 0 12px;color:var(--mute)}
+.btn{display:inline-block;background:var(--sig);color:#14212e;padding:10px 16px;border-radius:6px;font-weight:600;min-height:20px}
+.sub{color:var(--mute);margin:0 0 14px}
+.lay{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:start}
+svg{width:100%;height:auto;max-height:78vh;display:block;border-radius:8px;border:1px solid var(--line)}
+#tip{margin:0 0 10px;padding:10px 12px;border-left:4px solid var(--sig);background:var(--card);border-radius:0 8px 8px 0;min-height:4.4em;font-size:.95rem}
+.bar{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.bar button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:44px;cursor:pointer}
+.bar button.p{background:var(--sig);border-color:var(--sig);color:#14212e;font-weight:700}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li button{width:100%;text-align:left;display:block;padding:9px 12px;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;cursor:pointer;min-height:44px}
+li b{display:block}li span{color:var(--mute);font-size:.85rem;line-height:1.35;display:block}
+li.on button{border-color:var(--sig);box-shadow:inset 0 0 0 2px var(--sig)}
+.hl{paint-order:stroke;stroke:#000;stroke-opacity:.65;stroke-width:3px}
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
+[hidden]{display:none!important}
+@media (max-width:760px){.lay{grid-template-columns:1fr}svg{max-height:64vh}h1{font-size:1.5rem}nav{margin-left:0;width:100%;justify-content:space-between}nav a,nav button{padding:8px 8px}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+ <a class="logo" href="#home"><i></i>GoDrive</a>
+ <nav><a id="n1" href="#home"></a><a id="n2" href="#parking"></a><a id="n3" href="#reverse"></a><button id="lg"></button></nav>
+</div></header>
+<main>
+<section id="home">
+ <h1 id="h1"></h1><p class="lead" id="lead"></p>
+ <div class="cards">
+  <a class="card" href="#parking"><h2 id="c1"></h2><p id="c2"></p><span class="btn" id="c3"></span></a>
+  <a class="card" href="#reverse"><h2 id="d1"></h2><p id="d2"></p><span class="btn" id="d3"></span></a>
+ </div>
+</section>
+<section id="lesson" hidden>
+ <h1 id="ph"></h1><p class="sub" id="psub"></p>
+ <div class="lay">
+  <svg id="s" viewBox="100 0 600 400" role="img">
+   <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0b73a"/></marker></defs>
+   <g id="sc">
+    <g id="bg"></g>
+    <polyline id="trail" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="2 5" stroke-linecap="round"/>
+    <g id="car">
+     <rect x="-50" y="-22" width="100" height="44" rx="8" fill="var(--me)"/>
+     <rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".3"/><rect x="-30" y="-17" width="26" height="34" rx="3" fill="#000" opacity=".18"/>
+     <rect x="45" y="-18" width="5" height="9" rx="2" fill="#fff6c8"/><rect x="45" y="9" width="5" height="9" rx="2" fill="#fff6c8"/>
+     <rect id="rl1" x="-50" y="-18" width="4" height="9" rx="2" fill="#e5473d"/><rect id="rl2" x="-50" y="9" width="4" height="9" rx="2" fill="#e5473d"/>
+    </g>
+    <g id="ar"></g>
+   </g>
+   <g id="lt"></g>
+   <text id="lbl" text-anchor="middle" font-weight="600" fill="#fff" class="hl"></text>
+  </svg>
+  <div><p id="tip"></p><div class="bar"><button id="pp" class="p"></button><button id="rs"></button><button id="sp"></button></div><ol id="st"></ol></div>
+ </div>
+</section>
+</main>
+<footer><div><span id="f1"></span><a href="https://godrive.lv">godrive.lv</a></div></footer>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+/* ---------- texts ---------- */
+var PAR={ru:[
+ {t:"Выезд на исходную позицию",d:"Встаньте рядом с передней машиной, борт к борту, на расстоянии 0,5–1 м.",c:"Контрольная точка: встаньте параллельно, в 0,5–1 м от передней машины, так чтобы через заднее правое стекло (форточку) был виден левый задний угол (задний фонарь) передней машины."},
+ {t:"Выбор угла заезда",d:"Включите заднюю, руль вправо до упора, назад под углом около 35° к дороге.",c:"Контрольная точка: остановитесь, когда в левом боковом зеркале виден правый передний угол задней машины."},
+ {t:"Углубление",d:"Продолжайте назад, пока задний угол машины не пройдёт мимо переднего авто.",c:"Контрольная точка: остановитесь, когда через нижний правый угол лобового стекла виден левый задний угол (задняя фара) передней машины."},
+ {t:"Выравнивание",d:"Руль влево: передняя часть уходит внутрь, кузов выравнивается вдоль бордюра.",c:"Контрольная точка: следите за расстоянием до задней машины, не подъезжайте к ней вплотную."},
+ {t:"Корректировка",d:"Руль прямо, небольшой ход вперёд, чтобы встать по центру места."}],
+lv:[
+ {t:"Izbraukšana sākuma pozīcijā",d:"Apstājieties blakus priekšējai automašīnai, sāns pret sānu, 0,5–1 m attālumā.",c:"Kontrolpunkts: apstājieties paralēli, 0,5–1 m no priekšējās automašīnas tā, lai pa aizmugurējo labo logu (lodziņu) redzētu priekšējās automašīnas kreiso aizmugures stūri (aizmugures lukturi)."},
+ {t:"Iebraukšanas leņķa izvēle",d:"Ieslēdziet atpakaļgaitu, grieziet stūri pa labi līdz galam un braucat atpakaļ apmēram 35° leņķī pret ceļu.",c:"Kontrolpunkts: apstājieties, kad kreisajā sānu spogulī redzams aizmugurējās automašīnas labais priekšējais stūris."},
+ {t:"Iebraukšana dziļāk",d:"Turpiniet braukt atpakaļ, līdz jūsu aizmugures stūris paiet garām priekšējai automašīnai.",c:"Kontrolpunkts: apstājieties, kad caur vējstikla apakšējo labo stūri redzams priekšējās automašīnas kreisais aizmugures stūris (aizmugures lukturis)."},
+ {t:"Izlīdzināšana",d:"Stūre pa kreisi: automašīnas priekša virzās iekšā, virsbūve izlīdzinās gar apmali.",c:"Kontrolpunkts: sekojiet attālumam līdz aizmugurējai automašīnai, nebrauciet tai klāt."},
+ {t:"Korekcija",d:"Stūre taisni, neliela virzīšanās uz priekšu, lai nostātos vietas vidū."}]};
+var REV={ru:[
+ {t:"Исходная позиция",d:"Проедьте мимо места и остановитесь так, чтобы задняя часть вашей машины была на линии дальнего борта соседней машины, в 1–1,5 м от ряда стоящих машин.",c:"Контрольная точка: задняя часть вашей машины на воображаемой линии дальнего борта соседней машины; до ряда стоящих машин 1–1,5 м."},
+ {t:"Руль влево до упора",d:"Поверните руль влево до упора и продолжайте движение назад, пока в обоих боковых зеркалах не увидите дальние задние внутренние углы соседних машин на одинаковом расстоянии от вашей.",c:"Контрольная точка: остановитесь, когда в правом и левом боковых зеркалах дальние задние внутренние углы припаркованных рядом машин видны на одинаковом расстоянии от вашей машины. В левом боковом зеркале всё время контролируйте расстояние до задней автомашины (красная звёздочка)."},
+ {t:"Выпрямить руль и заехать",d:"Выпрямите руль и заезжайте на место, контролируя расстояние сзади.",c:"Контрольная точка: заезжайте прямо, контролируя расстояние сзади, и остановитесь, не доезжая до бордюра."}],
+lv:[
+ {t:"Sākuma pozīcija",d:"Pabrauciet garām vietai un apstājieties tā, lai jūsu automašīnas aizmugure atrastos uz iedomātas līnijas pie kaimiņa automašīnas tālākā sāna, 1–1,5 m no stāvošo automašīnu rindas.",c:"Kontrolpunkts: jūsu automašīnas aizmugure atrodas uz kaimiņa automašīnas tālākā sāna iedomātās līnijas; līdz stāvošo automašīnu rindai ir 1–1,5 m."},
+ {t:"Stūre pa kreisi līdz galam",d:"Grieziet stūri pa kreisi līdz galam un turpiniet braukt atpakaļ, līdz abos sānu spoguļos redzat kaimiņu automašīnu tālākos aizmugures iekšējos stūrus vienādā attālumā no jūsu automašīnas.",c:"Kontrolpunkts: apstājieties, kad labajā un kreisajā sānu spogulī stāvošo automašīnu tālākie aizmugures iekšējie stūri redzami vienādā attālumā no jūsu automašīnas. Kreisajā sānu spogulī visu laiku kontrolējiet attālumu līdz aizmugurējai automašīnai (sarkanā zvaigznīte)."},
+ {t:"Iztaisnot stūri un iebraukt",d:"Iztaisnojiet stūri un iebrauciet vietā, kontrolējot attālumu aizmugurē.",c:"Kontrolpunkts: braucat taisni atpakaļ, kontrolējiet attālumu aizmugurē un apstājieties pirms apmales."}]};
+var REVOLD={ru:[
+ {t:"Исходная позиция",d:"Проедьте мимо нужного места и остановитесь параллельно ряду машин, примерно в 2–2,5 м от них.",c:"Контрольная точка: остановитесь, когда через заднее правое стекло виден ближний к свободному месту угол правой соседней машины."},
+ {t:"Начало поворота",d:"Включите заднюю, руль вправо до упора и плавно двигайтесь назад: машина начнёт разворачиваться к месту.",c:"Контрольная точка: остановитесь (поворот около 45°), когда в правом боковом зеркале виден дальний угол правой соседней машины."},
+ {t:"Выход на ось места",d:"Продолжайте назад. Когда машина встала вдоль места, быстро выровняйте руль.",c:"Контрольная точка: остановитесь, когда в левом боковом зеркале виден ближний угол левой соседней машины, а машина стоит по оси места."},
+ {t:"Заезд назад по прямой",d:"Руль прямо, медленно назад до конца места, следя в зеркалах за обеими соседними машинами.",c:"Контрольная точка: остановитесь, не доезжая до бордюра около 0,5 м; расстояние видно в зеркалах или по камере."},
+ {t:"Корректировка",d:"Небольшой ход вперёд, чтобы машина встала по центру места, не касаясь линий."}],
+lv:[
+ {t:"Sākuma pozīcija",d:"Pabrauciet garām vajadzīgajai vietai un apstājieties paralēli automašīnu rindai, apmēram 2–2,5 m no tām.",c:"Kontrolpunkts: apstājieties, kad pa aizmugurējo labo logu redzams labās puses kaimiņa tuvākais stūris pie brīvās vietas."},
+ {t:"Pagrieziena sākums",d:"Ieslēdziet atpakaļgaitu, grieziet stūri pa labi līdz galam un lēni braucat atpakaļ: automašīna sāk pagriezties pret vietu.",c:"Kontrolpunkts: apstājieties (pagrieziens apmēram 45°), kad labajā sānu spogulī redzams labās puses kaimiņa tālākais stūris."},
+ {t:"Izlīdzināšana pret vietu",d:"Turpiniet braukt atpakaļ. Kad automašīna ir vietas virzienā, ātri iztaisnojiet stūri.",c:"Kontrolpunkts: apstājieties, kad kreisajā sānu spogulī redzams kreisā kaimiņa tuvākais stūris un automašīna ir vietas ass virzienā."},
+ {t:"Iebraukšana taisni atpakaļ",d:"Stūre taisni, lēni atpakaļ līdz vietas beigām, spoguļos sekojot abām kaimiņu automašīnām.",c:"Kontrolpunkts: apstājieties apmēram 0,5 m pirms apmales; attālumu redz spoguļos vai kamerā."},
+ {t:"Korekcija",d:"Neliela virzīšanās uz priekšu, lai automašīna nostātos vietas vidū, nepieskaroties līnijām."}]};
+var UI={
+ ru:{n1:"Главная",n2:"Параллельная",n3:"Задним ходом",lg:"Latviešu",h1:"Учебные материалы",lead:"Наглядные материалы автошколы GoDrive для подготовки к практическому экзамену.",
+  c1:"Параллельная парковка",c2:"Анимация вида сверху: пять этапов и визуальные ориентиры для водителя.",c3:"Открыть",
+  d1:"Парковка задним ходом",d2:"Заезд задним ходом на место между двумя машинами (как у супермаркета): три этапа и ориентиры.",d3:"Открыть",
+  par:{ph:"Параллельная парковка",psub:"Вид сверху: синяя машина паркуется задним ходом между двумя стоящими у бордюра."},
+  rev:{ph:"Парковка задним ходом",psub:"Вид сверху: синяя машина заезжает задним ходом на место между двумя машинами. Место слева от водителя."},
+  pause:"Пауза",resume:"Продолжить",again:"Повторить",reset:"Сначала",speed:"Скорость: ",done:"Готово: машина стоит по центру места",f1:"Автошкола GoDrive – учим с 1992 года",
+  lab:{L:"левый задний угол",R:"правый передний угол",B1:"дальний борт соседа",D1:"1–1,5 м",E:"равное расстояние",B2:"расстояние сзади",M:"левое зеркало: контроль"}},
+ lv:{n1:"Sākums",n2:"Paralēlā",n3:"Atpakaļgaitā",lg:"Русский",h1:"Mācību materiāli",lead:"Autoskolas GoDrive uzskates materiāli gatavošanai praktiskajam eksāmenam.",
+  c1:"Paralēlā novietošana",c2:"Animācija no augšas: pieci posmi un vizuālie orientieri autovadītājam.",c3:"Atvērt",
+  d1:"Novietošana atpakaļgaitā",d2:"Iebraukšana atpakaļgaitā vietā starp divām automašīnām (kā pie lielveikala): trīs posmi un orientieri.",d3:"Atvērt",
+  par:{ph:"Paralēlā novietošana",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu novietojas starp divām automašīnām, kas stāv pie apmales."},
+  rev:{ph:"Novietošana atpakaļgaitā",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu iebrauc vietā starp divām automašīnām. Vieta atrodas pa kreisi no vadītāja."},
+  pause:"Pauze",resume:"Turpināt",again:"Atkārtot",reset:"No sākuma",speed:"Ātrums: ",done:"Gatavs: automašīna stāv vietas vidū",f1:"Autoskola GoDrive – mācām kopš 1992. gada",
+  lab:{L:"kreisais aizmugures stūris",R:"labais priekšējais stūris",B1:"kaimiņa tālākais sāns",D1:"1–1,5 m",E:"vienāds attālums",B2:"attālums aizmugurē",M:"kreisais spogulis: kontrole"}}};
+/* ---------- scenes ---------- */
+function pk(x,c){return '<g transform="translate('+x+',277) rotate(90)"><rect x="-50" y="-22" width="100" height="44" rx="8" fill="'+c+'"/><rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".25"/></g>'}
+var bgPar='<rect x="-100" width="1100" height="330" fill="var(--road)"/><rect x="-100" y="330" width="1100" height="70" fill="var(--walk)"/><rect x="-100" y="328" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="150" x2="1000" y2="150" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".8"/><rect x="200" y="286" width="100" height="44" rx="8" fill="var(--p2)"/><rect x="270" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="480" y="286" width="100" height="44" rx="8" fill="var(--p1)"/><rect x="550" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="305" y="284" width="170" height="46" rx="6" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6" opacity=".8"/>';
+var lines="";for(var q=0;q<6;q++){lines+='<line x1="'+(217.5+55*q)+'" y1="227" x2="'+(217.5+55*q)+'" y2="345" stroke="var(--mark)" stroke-width="2" opacity=".8"/>'}
+var bgRev='<rect x="-100" width="1100" height="345" fill="var(--road)"/><rect x="-100" y="345" width="1100" height="55" fill="var(--walk)"/><rect x="-100" y="343" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="70" x2="1000" y2="70" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".6"/>'+lines+'<rect x="327.5" y="227" width="55" height="118" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6"/>'+pk(245,"var(--p1)")+pk(300,"var(--p2)")+pk(410,"var(--p1)")+pk(465,"var(--p2)");
+function pk2(x,c){return '<g transform="translate('+x+',113) rotate(-90)"><rect x="-50" y="-22" width="100" height="44" rx="8" fill="'+c+'"/><rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".25"/></g>'}
+function ln(x){return '<line x1="'+x+'" y1="63" x2="'+x+'" y2="170" stroke="var(--mark)" stroke-width="2" opacity=".8"/>'}
+var bgRev2='<rect x="-100" y="-100" width="1100" height="500" fill="var(--road)"/><rect x="-100" y="-100" width="1100" height="145" fill="var(--walk)"/><rect x="-100" y="43" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="340" x2="1000" y2="340" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".6"/>'+ln(266.5)+ln(318)+ln(392)+ln(443.5)+'<rect x="318" y="63" width="74" height="107" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6"/>'+pk2(237,"var(--p1)")+pk2(296,"var(--p2)")+pk2(414,"var(--p1)")+pk2(473,"var(--p2)");
+var REVS=(function(){var s=[{n:0,to:[486,218,0],d:3200,r:0},{n:0,to:[486,218,0],d:5000,r:0,k:0}];
+ for(var th=15;th<=90;th+=15){var r=th*Math.PI/180,ax=457-102*Math.sin(r),ay=116+102*Math.cos(r);s.push({n:1,to:[ax+29*Math.cos(r),ay+29*Math.sin(r),th],d:450,r:1,l:1,k:4})}
+ s.push({n:1,to:s[s.length-1].to,d:5000,r:0,k:1},{n:2,to:[355,113,90],d:2000,r:1},{n:2,to:[355,113,90],d:5000,r:0,k:2});return s})();
+var REVA=[
+ [{f:[436,163],to:[436,240],m:0,lab:{t:"B1",L:[442,256,"start"],P:[244,232,"start"]}},{f:[510,163],to:[510,196],m:2,lab:{t:"D1",L:[518,185,"start"],P:[172,106,"start"]}}],
+ [{P:[355,145,90],l:[25,-24],to:[392,63],m:1},{P:[355,145,90],l:[25,24],to:[318,63],m:1,lab:{t:"E",L:[355,226,"middle"],P:[215,300,"start"]}},{cp:1,l:[25,-24],to:[392,163],m:3,lab:{t:"M",L:[402,278,"start"],P:[395,268,"end"]}}],
+ [{f:[355,63],to:[355,45],m:2,lab:{t:"B2",L:[366,34,"start"],P:[8,262,"start"]}}],
+ [{cp:1,l:[25,-24],to:[392,163],m:3,lab:{t:"M",L:[402,184,"start"],P:[172,250,"start"]}}],
+ [{cp:1,l:[25,-24],to:[392,163],m:3,lab:{t:"M",L:[402,278,"start"],P:[395,268,"end"]}}]];
+var SC={
+ par:{bg:bgPar,W:PAR,start:[-90,225,0],ui:"par",
+  S:[{n:0,to:[540,240,0],d:3200,r:0},{n:0,to:[540,240,0],d:5000,r:0,k:0},{n:1,to:[455,262,-35],d:2300,r:1},{n:1,to:[455,262,-35],d:5000,r:0,k:1},{n:2,to:[418,283,-35],d:1900,r:1},{n:2,to:[418,283,-35],d:5000,r:0,k:2},{n:3,to:[402,298,-12],d:1500,r:1},{n:3,to:[372,306,0],d:1500,r:1},{n:3,to:[372,306,0],d:5000,r:0,k:3},{n:4,to:[392,307,0],d:1500,r:0}],
+  A:[[{P:[540,240,0],l:[8,-10],to:[480,286],m:1,lab:{t:"L",L:[474,272,"end"],P:[290,190,"end"]}}],
+     [{P:[455,262,-35],l:[25,-24],to:[300,330],m:1,lab:{t:"R",L:[300,354,"middle"],P:[322,338,"end"]}}],
+     [{P:[418,283,-35],l:[-8,-10],to:[480,294],m:1,lab:{t:"L",L:[500,276,"start"],P:[290,190,"end"]}}],
+     [{f:[322,270],to:[300,270],m:2}]]},
+ rev:{bg:bgRev2,W:REV,start:[-90,218,0],ui:"rev",ly:386,S:REVS,A:REVA,X:{
+  S:[{n:0,to:[470,150,0],d:3000,r:0},{n:0,to:[470,150,0],d:5000,r:0,k:0},{n:1,to:[436,161,-45],d:2200,r:1},{n:1,to:[436,161,-45],d:5000,r:0,k:1},{n:2,to:[355,165,-90],d:2200,r:1},{n:2,to:[355,165,-90],d:5000,r:0,k:2},{n:3,to:[355,277,-90],d:2400,r:1},{n:3,to:[355,277,-90],d:5000,r:0,k:3},{n:4,to:[355,268,-90],d:1500,r:0}],
+  A:[{P:[470,150,0],l:[8,-10],to:[388,227],t:"N1",lpL:[380,216,"end"],lpP:[215,252,"end"]},
+     {P:[436,161,-45],l:[25,24],to:[432,227],t:"N2",lpL:[440,246,"start"],lpP:[390,206,"end"]},
+     {P:[355,165,-90],l:[25,-24],to:[322,227],t:"N3",lpL:[314,216,"end"],lpP:[225,298,"start"]},
+     {f:[355,327],to:[355,345],dbl:1,t:""}]}}
+};
+/* ---------- engine ---------- */
+var lang="lv",key="par",cur,S,A,W,T=0,t=0,playing=true,speed=1,last=null,speeds=[1,.5,2],si=0,port=false,page="home";
+function load(k){key=k;cur=SC[k];S=cur.S;A=cur.A;T=0;S.forEach(function(s,i){s.a=T;T+=s.d;s.from=i?S[i-1].to:cur.start});$("bg").innerHTML=cur.bg;t=0;playing=true;mkItems(cur.W.ru.length)}
+function ease(u){return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2}
+function pose(t){for(var i=0;i<S.length;i++){var s=S[i];if(t<=s.a+s.d||i==S.length-1){var u=Math.min(1,Math.max(0,(t-s.a)/s.d)),e=s.l?u:ease(u);return{x:s.from[0]+(s.to[0]-s.from[0])*e,y:s.from[1]+(s.to[1]-s.from[1])*e,a:s.from[2]+(s.to[2]-s.from[2])*e,s:s}}}}
+function wp(P,l){var r=P[2]*Math.PI/180,c=Math.cos(r),s=Math.sin(r);return[P[0]+l[0]*c-l[1]*s,P[1]+l[0]*s+l[1]*c]}
+var items=[];function mkItems(n){$("st").innerHTML="";items=[];for(var i=0;i<n;i++)items.push(mk(i))}
+function mk(i){var li=document.createElement("li"),b=document.createElement("button");
+ b.onclick=function(){for(var k=0;k<S.length;k++)if(S[k].n==i){t=S[k].a;break}playing=true};
+ li.appendChild(b);$("st").appendChild(li);return li}
+function setMode(){port=matchMedia("(max-width:760px)").matches;
+ $("sc").setAttribute("transform",port?"translate(0,650) rotate(-90)":"");
+ $("s").setAttribute("viewBox",port?"0 0 400 500":"100 0 600 400");
+ var l=$("lbl");l.setAttribute("x",port?200:400);l.setAttribute("y",port?28:(cur.ly||36));l.setAttribute("font-size",port?16:20);
+ }
+function arrows(p){var g=$("ar"),k=p.s.k,L=$("lt");
+ if(k===undefined){g.innerHTML="";L.innerHTML="";return}
+ var op=(t-p.s.a)%1600<1200?1:0,h="",lb="",fs=port?13:14;
+ A[k].forEach(function(a){var f=a.cp?wp([p.x,p.y,p.a],a.l):(a.f||wp(a.P,a.l));
+  h+='<polyline points="'+f+' '+a.to+'" fill="none" stroke="#f0b73a" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" style="stroke-dashoffset:'+(-t/25)+'px"'+(a.m&&a.m!=3?' marker-end="url(#ah)"':'')+(a.m==2?' marker-start="url(#ah)"':'')+'/>';
+  if(a.m==3){var sp=[];for(var i=0;i<10;i++){var rr=i%2?5:12,an=-Math.PI/2+i*Math.PI/5;sp.push((a.to[0]+rr*Math.cos(an)).toFixed(1)+","+(a.to[1]+rr*Math.sin(an)).toFixed(1))}h+='<circle cx="'+f[0]+'" cy="'+f[1]+'" r="4" fill="#f0b73a"/><polygon points="'+sp.join(" ")+'" fill="#e5473d" stroke="#fff" stroke-width="1.5"/>'}
+  if(a.m==1)h+='<circle cx="'+f[0]+'" cy="'+f[1]+'" r="4" fill="#f0b73a"/><circle cx="'+a.to[0]+'" cy="'+a.to[1]+'" r="9" fill="none" stroke="#f0b73a" stroke-width="2"/>';
+  if(a.lab){var q=port?a.lab.P:a.lab.L;lb+='<text x="'+q[0]+'" y="'+q[1]+'" text-anchor="'+q[2]+'" font-size="'+fs+'" font-weight="600" fill="#fff" class="hl">'+UI[lang].lab[a.lab.t]+'</text>'}});
+ g.innerHTML=h;g.style.opacity=op;L.innerHTML=lb;L.style.opacity=op}
+function arrowsOld(p){var g=$("ar"),k=p.s.k,x=$("at");
+ if(k===undefined){g.style.display="none";x.textContent="";return}
+ var a=A[k],f=a.f||wp(a.P,a.l),ph=(t-p.s.a)%1600,o=$("ao"),d=$("ad"),l=$("al"),op=ph<1200?1:0;
+ g.style.display="";g.style.opacity=op;x.style.opacity=op;
+ l.setAttribute("points",f[0]+","+f[1]+" "+a.to[0]+","+a.to[1]);
+ l.setAttribute("marker-end","url(#ah)");
+ if(a.dbl)l.setAttribute("marker-start","url(#ah)");else l.removeAttribute("marker-start");
+ l.style.strokeDashoffset=-(t/25);
+ d.style.display=o.style.display=a.dbl?"none":"";
+ d.setAttribute("cx",f[0]);d.setAttribute("cy",f[1]);o.setAttribute("cx",a.to[0]);o.setAttribute("cy",a.to[1]);
+ if(a.t){var q=port?a.lpP:a.lpL;x.setAttribute("x",q[0]);x.setAttribute("y",q[1]);x.setAttribute("text-anchor",q[2]);x.textContent=UI[lang].lab[a.t]}else x.textContent=""}
+function dyn(){var u=UI[lang];$("pp").textContent=t>=T?u.again:playing?u.pause:u.resume;$("sp").textContent=u.speed+(speed==.5?"0,5":speed)+"×"}
+function draw(){var p=pose(t);
+ $("car").setAttribute("transform","translate("+p.x+","+p.y+") rotate("+p.a+")");
+ var rev=p.s.r&&t<T;$("rl1").setAttribute("fill",rev?"#fff":"#e5473d");$("rl2").setAttribute("fill",rev?"#fff":"#e5473d");
+ var pts=[];for(var q=0;q<=t;q+=60){var o=pose(q),r=o.a*Math.PI/180;pts.push((o.x-50*Math.cos(r)).toFixed(1)+","+(o.y-50*Math.sin(r)).toFixed(1))}
+ $("trail").setAttribute("points",pts.join(" "));
+ items.forEach(function(li,i){li.className=i==p.s.n?"on":""});
+ arrows(p);dyn();
+ $("tip").textContent=(p.s.k!==undefined&&W[p.s.n].c)?W[p.s.n].c:W[p.s.n].d;
+ $("lbl").textContent=t>=T?UI[lang].done:(p.s.n+1)+". "+W[p.s.n].t}
+function loop(ts){
+ if(page=="home"){last=null;requestAnimationFrame(loop);return}
+ if(last==null)last=ts;
+ if(playing){t=Math.min(T,t+(ts-last)*speed);if(t>=T)playing=false}
+ last=ts;draw();requestAnimationFrame(loop)}
+$("pp").onclick=function(){if(t>=T){t=0;playing=true;return}playing=!playing};
+$("rs").onclick=function(){t=0;playing=true};
+$("sp").onclick=function(){si=(si+1)%3;speed=speeds[si]};
+function txt(){var u=UI[lang];W=cur.W[lang];
+ ["n1","n2","n3","lg","h1","lead","c1","c2","c3","d1","d2","d3","f1"].forEach(function(k){$(k).textContent=u[k]});
+ $("rs").textContent=u.reset;
+ var su=u[cur.ui];$("ph").textContent=su.ph;$("psub").textContent=su.psub;
+ document.documentElement.lang=lang;$("s").setAttribute("aria-label",su.ph);
+ document.title="GoDrive – "+(page=="home"?u.h1:su.ph);
+ items.forEach(function(li,i){li.firstChild.innerHTML="<b>"+(i+1)+". "+W[i].t+"</b><span>"+W[i].d+"</span>"})}
+function route(){var h=location.hash;page=h=="#parking"?"par":h=="#reverse"?"rev":"home";
+ $("home").hidden=page!="home";$("lesson").hidden=page=="home";
+ $("n1").className=page=="home"?"on":"";$("n2").className=page=="par"?"on":"";$("n3").className=page=="rev"?"on":"";
+ if(page!="home"){load(page);setMode()}
+ txt();window.scrollTo(0,0)}
+$("lg").onclick=function(){lang=lang=="lv"?"ru":"lv";txt()};
+addEventListener("hashchange",route);addEventListener("resize",setMode);
+load("par");setMode();route();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
