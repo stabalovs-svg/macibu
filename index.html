@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-<!-- build: v3 kinematic parking + steering wheel, 2026-11-22 -->
+<!-- build: v11 mirror: rear edge ends in body, tail light on edge, 2026-11-22 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GoDrive – Mācību materiāli</title>
@@ -57,7 +57,7 @@ footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;fle
 <body>
 <header><div class="hd">
  <a class="logo" href="#home"><i></i>GoDrive</a>
- <nav><a id="n1" href="#home"></a><a id="n2" href="#parking"></a><a id="n3" href="#reverse"></a><button id="lg"></button></nav>
+ <nav><a id="n1" href="#home"></a><a id="n2" href="#parking"></a><a id="n3" href="#reverse"></a><a id="n4" href="#mirrors"></a><a id="n5" href="#markings"></a><button id="lg"></button></nav>
 </div></header>
 <main>
 <section id="home">
@@ -65,6 +65,8 @@ footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;fle
  <div class="cards">
   <a class="card" href="#parking"><h2 id="c1"></h2><p id="c2"></p><span class="btn" id="c3"></span></a>
   <a class="card" href="#reverse"><h2 id="d1"></h2><p id="d2"></p><span class="btn" id="d3"></span></a>
+  <a class="card" href="#mirrors"><h2 id="e1"></h2><p id="e2"></p><span class="btn" id="e3"></span></a>
+  <a class="card" href="#markings"><h2 id="g1"></h2><p id="g2"></p><span class="btn" id="g3"></span></a>
  </div>
 </section>
 <section id="lesson" hidden>
@@ -88,6 +90,8 @@ footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;fle
    <g id="lt"></g>
    <text id="lbl" text-anchor="middle" font-weight="600" fill="#fff" class="hl"></text>
   </svg>
+  <svg id="ks" viewBox="0 0 360 480" role="img" style="display:none"></svg>
+  <svg id="ms" viewBox="0 0 360 510" role="img" style="display:none"></svg>
   <div><div id="wh"><svg id="whs" viewBox="-30 -30 60 60" aria-hidden="true"><g id="whg"><circle r="23" fill="none" stroke="var(--ink)" stroke-width="5"/><line x1="-23" y1="0" x2="23" y2="0" stroke="var(--ink)" stroke-width="4"/><line x1="0" y1="0" x2="0" y2="23" stroke="var(--ink)" stroke-width="4"/><circle r="5" fill="var(--ink)"/><rect x="-3" y="-28" width="6" height="8" fill="var(--sig)"/></g></svg><div><b id="wl"></b><span id="wv"></span></div></div><p id="tip"></p><div class="bar"><button id="pp" class="p"></button><button id="rs"></button><button id="sp"></button></div><ol id="st"></ol></div>
  </div>
 </section>
@@ -136,14 +140,14 @@ var UI={
   par:{ph:"Параллельная парковка",psub:"Вид сверху: синяя машина паркуется задним ходом между двумя стоящими у бордюра."},
   rev:{ph:"Парковка задним ходом",psub:"Вид сверху: синяя машина заезжает задним ходом на место между двумя машинами. Место слева от водителя."},
   pause:"Пауза",resume:"Продолжить",again:"Повторить",reset:"Сначала",speed:"Скорость: ",done:"Готово: машина стоит по центру места",f1:"Автошкола GoDrive – учим с 1992 года",
-  lab:{L:"левый задний угол",R:"правый передний угол",B1:"дальний борт соседа",D1:"1–1,5 м",E:"равное расстояние",B2:"расстояние сзади",M:"левое зеркало: контроль"},wh:{g1:"Вперёд",g2:"Задний ход",g0:"Стоим",s:"Руль: ",l:"влево",r:"вправо",c:"прямо",u:"об.",lim:"до упора"}},
+  lab:{L:"левый задний угол",R:"правый передний угол",B1:"дальний борт соседа",D1:"1–1,5 м",E:"равное расстояние",B2:"расстояние сзади",M:"левое зеркало: контроль"},wh:{g1:"Вперёд",g2:"Задний ход",g0:"Стоим",s:"Руль: ",l:"влево",r:"вправо",c:"прямо",u:"об.",lim:"до упора"},n4:"Зеркала",e1:"Регулировка зеркал",e2:"Как настроить боковые зеркала: горизонт посередине и своя машина на 1/4–1/3 ширины.",e3:"Открыть",mir:{ph:"Регулировка боковых зеркал",psub:"Вид из места водителя: как настроить боковые зеркала, чтобы видеть и соседние полосы, и машины сзади."},ml:{h:"горизонт посередине",c:"своя машина: 1/4–1/3 зеркала",k:"машина сзади всегда у линии горизонта",L:"левое зеркало",R:"правое зеркало",s:"сектор обзора",top:"вид сверху",a:"соседняя полоса",b:"ситуация сзади"},n5:"Разметка",g1:"Дорожная разметка",g2:"Сплошная, прерывистая, двойная и жёлтая линии: где можно пересекать, а где нет.",g3:"Открыть",mk:{ph:"Дорожная разметка",psub:"Вид сверху. Основано на Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), для обучения; не заменяет текст правил."},kl:{k0:"можно: перестроение",k1:"нельзя",k2:"нельзя",k3a:"можно: со стороны прерывистой",k3b:"нельзя: со стороны сплошной",k4:"944: остановка можно",k5:"943: остановка и стоянка запрещены"}},
  lv:{n1:"Sākums",n2:"Paralēlā",n3:"Atpakaļgaitā",lg:"Русский",h1:"Mācību materiāli",lead:"Autoskolas GoDrive uzskates materiāli gatavošanai praktiskajam eksāmenam.",
   c1:"Paralēlā novietošana",c2:"Animācija no augšas: pieci posmi un vizuālie orientieri autovadītājam.",c3:"Atvērt",
   d1:"Novietošana atpakaļgaitā",d2:"Iebraukšana atpakaļgaitā vietā starp divām automašīnām (kā pie lielveikala): trīs posmi un orientieri.",d3:"Atvērt",
   par:{ph:"Paralēlā novietošana",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu novietojas starp divām automašīnām, kas stāv pie apmales."},
   rev:{ph:"Novietošana atpakaļgaitā",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu iebrauc vietā starp divām automašīnām. Vieta atrodas pa kreisi no vadītāja."},
   pause:"Pauze",resume:"Turpināt",again:"Atkārtot",reset:"No sākuma",speed:"Ātrums: ",done:"Gatavs: automašīna stāv vietas vidū",f1:"Autoskola GoDrive – mācām kopš 1992. gada",
-  lab:{L:"kreisais aizmugures stūris",R:"labais priekšējais stūris",B1:"kaimiņa tālākais sāns",D1:"1–1,5 m",E:"vienāds attālums",B2:"attālums aizmugurē",M:"kreisais spogulis: kontrole"},wh:{g1:"Uz priekšu",g2:"Atpakaļgaita",g0:"Stāvam",s:"Stūre: ",l:"pa kreisi",r:"pa labi",c:"taisni",u:"apgr.",lim:"līdz galam"}}};
+  lab:{L:"kreisais aizmugures stūris",R:"labais priekšējais stūris",B1:"kaimiņa tālākais sāns",D1:"1–1,5 m",E:"vienāds attālums",B2:"attālums aizmugurē",M:"kreisais spogulis: kontrole"},wh:{g1:"Uz priekšu",g2:"Atpakaļgaita",g0:"Stāvam",s:"Stūre: ",l:"pa kreisi",r:"pa labi",c:"taisni",u:"apgr.",lim:"līdz galam"},n4:"Spoguļi",e1:"Spoguļu regulēšana",e2:"Kā noregulēt sānu spoguļus: horizonts pa vidu un sava automašīna 1/4–1/3 platuma.",e3:"Atvērt",mir:{ph:"Sānu spoguļu regulēšana",psub:"Skats no vadītāja vietas: kā noregulēt sānu spoguļus, lai redzētu gan blakus joslas, gan automašīnas aizmugurē."},ml:{h:"horizonts pa vidu",c:"sava automašīna: 1/4–1/3 no spoguļa",k:"automašīna aizmugurē vienmēr pie horizonta",L:"kreisais spogulis",R:"labais spogulis",s:"redzamības sektors",top:"skats no augšas",a:"blakus josla",b:"situācija aizmugurē"},n5:"Marķējums",g1:"Ceļa apzīmējumi",g2:"Nepārtrauktā, pārtrauktā, dubultā un dzeltenā līnija: kur drīkst šķērsot un kur nē.",g3:"Atvērt",mk:{ph:"Ceļa apzīmējumi (līnijas)",psub:"Skats no augšas. Pamatā Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), mācību nolūkos; neaizstāj noteikumu tekstu."},kl:{k0:"drīkst: pārkārtošanās",k1:"aizliegts",k2:"aizliegts",k3a:"drīkst: no pārtrauktās puses",k3b:"aizliegts: no nepārtrauktās puses",k4:"944: apstāties drīkst",k5:"943: apstāties un stāvēt aizliegts"}}};
 /* ---------- scenes ---------- */
 function pk(x,c){return '<g transform="translate('+x+',277) rotate(90)"><rect x="-50" y="-22" width="100" height="44" rx="8" fill="'+c+'"/><rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".25"/></g>'}
 var bgPar='<rect x="-100" width="1100" height="330" fill="var(--road)"/><rect x="-100" y="330" width="1100" height="70" fill="var(--walk)"/><rect x="-100" y="328" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="150" x2="1000" y2="150" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".8"/><rect x="200" y="286" width="100" height="44" rx="8" fill="var(--p2)"/><rect x="270" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="480" y="286" width="100" height="44" rx="8" fill="var(--p1)"/><rect x="550" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="305" y="284" width="170" height="46" rx="6" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6" opacity=".8"/>';
@@ -176,7 +180,133 @@ var REVA=[
  [{f:[355,63],to:[355,45],m:2,lab:{t:"B2",L:[366,34,"start"],P:[8,262,"start"]}}],
  [{cp:1,l:[25,-24],to:[392,163],m:3,lab:{t:"M",L:[402,184,"start"],P:[172,250,"start"]}}],
  [{cp:1,l:[25,-24],to:[392,163],m:3,lab:{t:"M",L:[402,278,"start"],P:[395,268,"end"]}}]];
+var MIR={ru:[
+ {t:"Горизонт по середине",d:"Машина стоит на ровной поверхности. Наклоняйте зеркало вверх или вниз, пока линия горизонта не пройдёт по середине зеркала.",c:"Контрольная точка: линия горизонта дороги проходит по середине зеркала. Тогда машина сзади всегда будет в центре зеркала, независимо от расстояния до неё."},
+ {t:"Своя машина в зеркале",d:"Поворачивайте зеркало по горизонтали, пока не увидите свою машину примерно на 1/4–1/3 ширины зеркала. Внизу показан вид сверху: сектор обзора поворачивается вместе с зеркалом.",c:"Контрольная точка: своя машина занимает 1/4–1/3 ширины зеркала. Так видны и машины в соседних полосах, и едущие сзади."},
+ {t:"Правое зеркало",d:"Так же настройте правое зеркало: горизонт посередине, своя машина занимает 1/4–1/3 ширины (слева).",c:"Контрольная точка: в правом зеркале горизонт посередине, а своя машина видна у левого края — те же 1/4–1/3 ширины."},
+ {t:"Проверка",d:"Когда настройка закончена, машина сзади приближается и всегда остаётся у линии горизонта, в центре зеркала.",c:"Контрольная точка: машины сзади — и в вашей полосе, и в соседней — остаются на линии горизонта и растут по мере приближения."},
+ {t:"Итог",d:"Верно настроенное боковое зеркало показывает и соседнюю полосу, и ситуацию сзади, поэтому при перестроении не нужно отвлекаться на салонное зеркало.",c:"Итог: одно боковое зеркало — соседняя полоса и ситуация сзади одновременно, без взгляда в салонное."}],
+lv:[
+ {t:"Horizonts pa vidu",d:"Automašīna stāv uz līdzenas virsmas. Sasveriet spoguli uz augšu vai uz leju, līdz ceļa horizonta līnija iet pa spoguļa vidu.",c:"Kontrolpunkts: ceļa horizonta līnija iet pa spoguļa vidu. Tad aizmugurē braucošā automašīna vienmēr atrodas spoguļa centrā, neatkarīgi no attāluma līdz tai."},
+ {t:"Sava automašīna spogulī",d:"Pagrieziet spoguli horizontāli, līdz spogulī redzat savu automašīnu apmēram 1/4–1/3 no spoguļa platuma. Apakšā redzams skats no augšas: redzamības sektors griezas līdz ar spoguli.",c:"Kontrolpunkts: sava automašīna aķem 1/4–1/3 no spoguļa platuma. Tā redzamas gan blakus joslu automašīnas, gan aizmugurē braucošās."},
+ {t:"Labais spogulis",d:"Tāpat noregulējiet labo spoguli: horizonts pa vidu, sava automašīna aķem 1/4–1/3 platuma (kreisajā malā).",c:"Kontrolpunkts: labajā spogulī horizonts ir pa vidu, un sava automašīna redzama pie kreisās malās, tās pašas 1/4–1/3 platuma."},
+ {t:"Pārbaude",d:"Kad regulēšana pabeigta, aizmugurē braucošā automašīna tuvojas un vienmēr paliek pie horizonta līnijas, spoguļa centrā.",c:"Kontrolpunkts: automašīnas aizmugurē – gan jūsu joslā, gan blakus joslā – paliek pie horizonta līnijas un kļūst lielākas, tuvojoties."},
+ {t:"Kopsavilkums",d:"Pareizi noregulēts sānu spogulis rāda gan blakus joslu, gan situāciju aizmugurē, tāpēc, maināt joslu, nav jāatrauj skatiens uz salona spoguli.",c:"Kopsavilkums: viens sānu spogulis rāda gan blakus joslu, gan situāciju aizmugurē, neskatoties salona spogulī."}]};
+var MIRS=[{n:0,d:3200,to:{H:100}},{n:0,d:5000,k:0,to:{}},{n:1,d:3200,to:{al:2.3}},{n:1,d:5000,k:1,to:{}},{n:2,d:3500,set:{flip:1,H:160,al:16},to:{H:100,al:2.3}},{n:2,d:5000,k:2,to:{}},{n:3,d:5500,set:{flip:0,H:100,al:2.3,df:15,db:16},to:{df:9.5,db:9}},{n:3,d:5000,k:3,to:{}},{n:4,d:7000,k:4,to:{}}];
+function mprep(){var st={H:30,al:16,df:11,db:8,dg:9,flip:0};MIRS.forEach(function(s){var a=Object.assign({},st,s.set||{});s.from=a;s.to=Object.assign({},a,s.to);st=s.to})}
+function bld(H,dx){var h="";for(var i=0;i<10;i++){var hh=10+((i*7)%4)*7;h+='<rect x="'+(-60+45*i+dx)+'" y="'+(H-hh)+'" width="42" height="'+hh+'" fill="#6d8579"/>'}return h}
+function mcar(vx,H,sc,lat,col){var u=45*sc,cx=vx+lat*u,yr=H-.25*u,yg=H+1.2*u,r=function(x,y,w,h,c,rx){return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+(rx||0).toFixed(1)+'" fill="'+c+'"/>'};
+ return r(cx-.7*u,yr,1.4*u,.55*u,"#2b3a46",.15*u)+r(cx-.9*u,yr+.35*u,1.8*u,.85*u,col,.12*u)+r(cx-.85*u,yr+.55*u,.3*u,.14*u,"#fff3c0")+r(cx+.55*u,yr+.55*u,.3*u,.14*u,"#fff3c0")+r(cx-.8*u,yg-.28*u,.3*u,.28*u,"#111")+r(cx+.5*u,yg-.28*u,.3*u,.28*u,"#111")}
+function mtx(x,y,an,sz,str,cl){return '<text x="'+x+'" y="'+y+'" text-anchor="'+an+'" font-size="'+sz+'" font-weight="600" fill="'+(cl||"#fff")+'"'+(cl?'':' class="hl"')+'>'+str+'</text>'}
+var GP='M70,4H262Q296,4 298,34V168Q298,198 266,198H96C36,198 4,150 4,98C4,44 30,4 70,4Z';
+var HA=16,MX=[166,194],MY=318,PPM=12,KS=7.65;
+function mang(out,dep){return Math.atan2(out,dep)*180/Math.PI}
+function mxp(b,al){return 300*(1-(b-(al-HA))/(2*HA))}
+function bld2(H,dx){var h='';for(var i=0;i<12;i++){var x=(((45*i+dx)%540)+540)%540-120,hh=10+((i*7)%4)*7;h+='<rect x="'+x.toFixed(1)+'" y="'+(H-hh)+'" width="42" height="'+hh+'" fill="#6d8579"/>'}return h}
+function mside(H,f){if(f<=.005)return'';var w=300*f,x0=300-w,o=Math.min(1,w/45),yb0=H+16,yb1=H+88,bw=13*o+2,
+ B=function(p,t){var u=1-t;return[u*u*u*p[0][0]+3*u*u*t*p[1][0]+3*u*t*t*p[2][0]+t*t*t*p[3][0],u*u*u*p[0][1]+3*u*u*t*p[1][1]+3*u*t*t*p[2][1]+t*t*t*p[3][1]]},
+ s1=[[x0+34*o,-10],[x0+22*o,40],[x0+8*o,90],[x0+4*o,115]],s2=[[x0+4*o,115],[x0,140],[x0,170],[x0+o,210]],E=[],i,
+ belt=function(x){return yb0+(yb1-yb0)*(x-x0)/w},pt=function(a){return a[0].toFixed(1)+','+a[1].toFixed(1)},g='';
+ for(i=0;i<=10;i++)E.push(B(s1,i/10));for(i=1;i<=8;i++)E.push(B(s2,i/8));
+ g+='<polygon points="'+E.map(pt).join(' ')+' 300,210 300,-10" fill="var(--me)"/>';
+ var k=0;for(i=0;i<E.length;i++){if(E[i][1]<=belt(E[i][0]+bw))k=i}
+ var gl=[];for(i=0;i<=k;i++)gl.push([E[i][0]+bw,E[i][1]]);gl.push([300,yb1],[300,-10]);
+ g+='<polygon points="'+gl.map(pt).join(' ')+'" fill="#26313b"/>';
+ g+='<line x1="'+(E[k][0]+bw).toFixed(1)+'" y1="'+(E[k][1]+4).toFixed(1)+'" x2="300" y2="'+(yb1+4)+'" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>';
+ g+='<ellipse cx="'+(x0+.58*w)+'" cy="206" rx="'+(.2*w)+'" ry="28" fill="#0e0e0e"/>';
+ var yl=E[k][1]+22,j=0;for(i=0;i<E.length;i++){if(Math.abs(E[i][1]-yl)<Math.abs(E[j][1]-yl))j=i}
+ g+='<rect x="'+(E[j][0]+1).toFixed(1)+'" y="'+(yl-11).toFixed(1)+'" width="'+Math.min(10,.13*w)+'" height="22" rx="3" fill="#e5473d"/>';
+ g+='<polyline points="'+E.map(pt).join(' ')+'" fill="none" stroke="#0d2a4a" stroke-width="2"/>';
+ return g}
+function tview2(st,s,op,da){var ml=UI[lang].ml,k=s.k,aO=2.3,aL=st.flip?aO:st.al,aR=st.flip?st.al:aO,
+ o='<g clip-path="url(#tc)"><rect x="20" y="300" width="320" height="200" fill="var(--walk)"/><rect x="105" y="300" width="150" height="200" fill="#575d63"/><line x1="159" y1="300" x2="159" y2="500" stroke="#e9e6d6" stroke-width="2" stroke-dasharray="12 10"/><line x1="201" y1="300" x2="201" y2="500" stroke="#e9e6d6" stroke-width="2" stroke-dasharray="12 10"/>';
+ [[127,st.db,'#b5503f'],[169,st.df,'#dcdcdc'],[211,st.dg,'#4f8a5b']].forEach(function(c){o+='<rect x="'+c[0]+'" y="'+(MY+c[1]*PPM)+'" width="22" height="54" rx="5" fill="'+c[2]+'"/>'});
+ function dv(b,dir){var r=b*Math.PI/180;return[dir*Math.sin(r),Math.cos(r)]}
+ function wedge(px,dir,a,act){var p1=dv(a-HA,dir),p2=dv(a+HA,dir),L=190;return '<polygon points="'+px+','+MY+' '+(px+L*p1[0])+','+(MY+L*p1[1])+' '+(px+L*p2[0])+','+(MY+L*p2[1])+'" fill="#f0b73a" fill-opacity="'+(act?.4:.14)+'"/>'}
+ o+=wedge(MX[0],-1,aL,!st.flip)+wedge(MX[1],1,aR,!!st.flip);
+ o+='<rect x="169" y="306" width="22" height="54" rx="6" fill="var(--me)"/><rect x="172" y="314" width="16" height="10" rx="3" fill="#26313b"/><rect x="172" y="343" width="16" height="8" rx="3" fill="#26313b"/><rect x="162" y="313" width="7" height="8" rx="2" fill="#111"/><rect x="191" y="313" width="7" height="8" rx="2" fill="#111"/>';
+ if(k==1||k==2){var px=MX[st.flip?1:0],dir=st.flip?1:-1,a=st.flip?aR:aL;
+  o+='<g style="opacity:'+op+'">';
+  [a-HA,a+HA].forEach(function(b){var e=dv(b,dir);o+='<polyline points="'+px+','+MY+' '+(px+150*e[0])+','+(MY+150*e[1])+'" fill="none" stroke="#f0b73a" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#mh)" style="'+da+'"/>'});
+  o+=mtx(st.flip?204:156,332,st.flip?'start':'end',13,ml.s)+'</g>'}
+ return o+'</g>'+mtx(28,316,'start',13,ml.top)}
+function mview3(st,s,op){var H=st.H,al=st.al,f=Math.max(0,(11.92-al)/32),vx=300*(al+HA)/(2*HA),g='',ml=UI[lang].ml,k=s.k,da='stroke-dashoffset:'+(-t/25)+'px',dfb=413/(200-H);
+ g+='<rect width="300" height="200" fill="#8fc1e3"/>'+bld2(H,vx-150)+'<rect y="'+H+'" width="300" height="400" fill="#575d63"/>';
+ [[49,0],[7,1],[-35,1]].forEach(function(l){var X=mxp(mang(l[0],dfb*PPM),al);g+='<line x1="'+vx.toFixed(1)+'" y1="'+H+'" x2="'+X.toFixed(1)+'" y2="200" stroke="#e9e6d6" stroke-width="3"'+(l[1]?' stroke-dasharray="14 12"':'')+'/>'});
+ var sd=st.flip?[st.dg,'#4f8a5b']:[st.db,'#b5503f'];
+ [[sd[0],28,sd[1]],[st.df,-14,'#dcdcdc']].sort(function(a,b){return b[0]-a[0]}).forEach(function(c){g+=mcar(mxp(mang(c[1],c[0]*PPM+27),al),H,KS/c[0],0,c[2])});
+ g+=mside(H,f);
+ var o='<defs><clipPath id="mc"><path d="'+GP+'"/></clipPath><clipPath id="tc"><rect x="20" y="300" width="320" height="200" rx="10"/></clipPath><marker id="mh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0b73a"/></marker></defs>';
+ o+=mtx(180,16,'middle',16,(s.n+1)+'. '+W[s.n].t+' \u00b7 '+(st.flip?ml.R:ml.L),'var(--ink)');
+ o+='<g'+(st.flip?' transform="translate(360,0) scale(-1,1)"':'')+'><path d="M322,100C340,96 352,100 358,112V158C350,166 338,170 322,172Z" fill="#20242a"/><path transform="translate(30,40)" d="'+GP+'" fill="#20242a" stroke="#20242a" stroke-width="26" stroke-linejoin="round"/><g transform="translate(30,40)" clip-path="url(#mc)">'+g+'</g><path transform="translate(30,40)" d="'+GP+'" fill="none" stroke="#000" stroke-opacity=".5" stroke-width="3"/></g>';
+ if(k!==undefined){o+='<g style="opacity:'+op+'">';
+  if(k!=1&&k!=4){o+='<polyline points="32,140 328,140" fill="none" stroke="#f0b73a" stroke-width="3" stroke-dasharray="8 6" style="'+da+'"/><circle cx="180" cy="140" r="9" fill="none" stroke="#f0b73a" stroke-width="2"/>'+(k==3?mtx(180,131,'middle',13,ml.k):mtx(180,131,'middle',14,ml.h))}
+  if(k==4){[[st.db,28,ml.a],[st.df,-14,ml.b]].forEach(function(c){var X=mxp(mang(c[1],c[0]*PPM+27),al),u=45*KS/c[0];o+=mtx(30+X,40+H-.25*u-10,'middle',13,c[2])})}
+  if(k==1||k==2){var w=300*f,a=st.flip?32:330-w,b=st.flip?30+w:328;o+='<polyline points="'+a+',190 '+b+',190" fill="none" stroke="#f0b73a" stroke-width="3" stroke-dasharray="8 6" marker-start="url(#mh)" marker-end="url(#mh)" style="'+da+'"/>'+mtx(st.flip?32:328,276,st.flip?'start':'end',14,ml.c,'var(--ink)')}
+  o+='</g>'}
+ return o+tview2(st,s,op,da)}
+function mview(st,s,op){return mview3(st,s,op)}
+function mirror(p){var s=p.s,e=p.e,fr=s.from,to=s.to,st={flip:to.flip};["H","al","df","db","dg"].forEach(function(k){st[k]=fr[k]+(to[k]-fr[k])*e});
+ $("ms").innerHTML=mview(st,s,((t-s.a)%1600)<1200?1:0);
+ items.forEach(function(li,i){li.className=i==s.n?"on":""});
+ $("tip").textContent=(s.k!==undefined&&W[s.n].c)?W[s.n].c:W[s.n].d;dyn()}
+var MKW={ru:[
+ {t:"Прерывистая линия",d:"Разделяет полосы одного направления. Пересекать её можно только при перестроении, ехать по ней нельзя.",c:"Прерывистую линию можно пересекать только при перестроении. Сигнал поворота включают заранее."},
+ {t:"Сплошная линия (920)",d:"Разделяет встречные потоки. Пересекать её запрещено, например при обгоне. Исключение: вернуться на свою сторону.",c:"Сплошную линию пересекать нельзя. Останавливаться и стоять запрещено, если от линии до машины меньше 3 м."},
+ {t:"Двойная сплошная (921)",d:"Разделяет встречные потоки на дорогах с тремя и более полосами. Пересекать запрещено.",c:"Двойную сплошную линию пересекать запрещено."},
+ {t:"Сплошная и прерывистая (928)",d:"Пересекать можно только со стороны прерывистой линии. Со стороны сплошной запрещено, кроме возврата на свою сторону, если линия разделяет встречные потоки.",c:"Со стороны прерывистой линии можно, со стороны сплошной нельзя."},
+ {t:"Жёлтая линия у края (943/944)",d:"Сплошная жёлтая (943): остановка и стоянка запрещены. Прерывистая жёлтая (944): стоянка запрещена, остановка для посадки пассажиров допустима.",c:"943: нельзя ни останавливаться, ни стоять. 944: стоять нельзя, остановиться для посадки пассажиров можно."}],
+lv:[
+ {t:"Pārtrauktā līnija",d:"Atdala viena virziena joslas. Šķērsot drīkst tikai pārkārtojoties, braukt pa līniju nedrīkst.",c:"Pārtraukto līniju drīkst šķērsot tikai pārkārtojoties. Pagrieziena rādītāju ieslēdz laikus."},
+ {t:"Nepārtrauktā līnija (920)",d:"Atdala pretējo virzienu plūsmas. To šķērsot aizliegts, piemēram, apdzenot. Izņēmums: atgriezties savā braukšanas virziena pusē.",c:"Nepārtraukto līniju šķērsot nedrīkst. Apstāties un stāvēt aizliegts, ja attālums no līnijas līdz automašīnai ir mazāks par 3 m."},
+ {t:"Dubultā nepārtrauktā (921)",d:"Atdala pretējo virzienu plūsmas uz ceļiem ar trim vai vairāk joslām. Šķērsot aizliegts.",c:"Dubulto nepārtraukto līniju šķērsot aizliegts."},
+ {t:"Nepārtrauktā un pārtrauktā (928)",d:"Šķērsot drīkst tikai no pārtrauktās līnijas puses. No nepārtrauktās puses aizliegts, izņemot atgriešanos savā pusē, ja līnija sadala pretējos virzienus.",c:"No pārtrauktās puses drīkst, no nepārtrauktās nedrīkst."},
+ {t:"Dzeltenā līnija malā (943/944)",d:"Nepārtraukta dzeltena (943): apstāties un stāvēt aizliegts. Pārtraukta dzeltena (944): stāvēt aizliegts, apstāties pasažieru iekāpšanai drīkst.",c:"943: nedrīkst ne apstāties, ne stāvēt. 944: stāvēt nedrīkst, apstāties pasažieru iekāpšanai drīkst."}]};
+var MKS=[
+ {n:0,d:2200,to:{ay:330}},{n:0,d:800,to:{ax:180,ay:290,aa:-18,sg:1}},{n:0,d:800,to:{ax:132,ay:240,aa:0}},{n:0,d:5000,k:0,to:{}},{n:0,d:2000,to:{ay:-100,sg:0}},
+ {n:1,d:2600,set:{ax:228,ay:520,aa:0,cx:228,cy:210,bx:132,by:-60,ba:180,sg:0},to:{ay:360,by:380}},{n:1,d:5000,k:1,to:{}},
+ {n:2,d:2600,set:{ax:180,ay:520,aa:0,cx:180,cy:210,bx:100,by:-60,ba:180},to:{ay:360,by:380}},{n:2,d:5000,k:2,to:{}},
+ {n:3,d:2600,set:{ax:228,ay:520,aa:0,bx:132,by:-60,ba:180,cx:228,cy:-300},to:{ay:430,by:70}},{n:3,d:5000,k:3,to:{}},
+ {n:4,d:2600,set:{ax:228,ay:560,aa:0,bx:132,by:-300,ba:180,cx:228,cy:-300},to:{ax:240,ay:420}},{n:4,d:5000,k:4,to:{}},{n:4,d:2200,to:{ay:170}},{n:4,d:5000,k:5,to:{}}];
+var MKK=['ax','ay','aa','bx','by','ba','cx','cy','sg'];
+function mkprep(){var st={ax:228,ay:540,aa:0,cx:228,cy:140,bx:132,by:-200,ba:180,sg:0};MKS.forEach(function(s){var a=Object.assign({},st,s.set||{});s.from=a;s.to=Object.assign({},a,s.to);st=s.to})}
+function mroad(n){var g='<rect width="360" height="480" fill="var(--walk)"/>',L=function(x,w,c,da){return '<line x1="'+x+'" y1="0" x2="'+x+'" y2="480" stroke="'+c+'" stroke-width="'+w+'"'+(da?' stroke-dasharray="'+da+'"':'')+'/>'};
+ if(n==2){g+='<rect x="60" width="240" height="480" fill="#575d63"/>'+L(137,3,'#e9e6d6')+L(143,3,'#e9e6d6')+L(220,4,'#e9e6d6','14 42')}
+ else{g+='<rect x="84" width="192" height="480" fill="#575d63"/>';
+  if(n==0)g+=L(180,4,'#e9e6d6','14 42');
+  else if(n==1)g+=L(180,4,'#e9e6d6');
+  else if(n==3)g+=L(176,4,'#e9e6d6')+L(186,4,'#e9e6d6','42 14');
+  else g+=L(180,4,'#e9e6d6')+'<line x1="269" y1="0" x2="269" y2="240" stroke="#f2c230" stroke-width="5"/><line x1="269" y1="240" x2="269" y2="480" stroke="#f2c230" stroke-width="5" stroke-dasharray="24 14"/>'}
+ return g}
+function mcar2(x,y,a,col,sig){var h='<g transform="translate('+x.toFixed(1)+','+y.toFixed(1)+') rotate('+a.toFixed(1)+')"><rect x="-20" y="-40" width="40" height="80" rx="10" fill="'+col+'" stroke="#0d2a4a" stroke-opacity=".4" stroke-width="2"/><rect x="-14" y="-26" width="28" height="15" rx="4" fill="#26313b"/><rect x="-14" y="16" width="28" height="11" rx="4" fill="#26313b"/><rect x="-17" y="-40" width="8" height="4" fill="#fff3c0"/><rect x="9" y="-40" width="8" height="4" fill="#fff3c0"/><rect x="-17" y="36" width="8" height="4" fill="#e5473d"/><rect x="9" y="36" width="8" height="4" fill="#e5473d"/>';
+ if(sig)h+='<rect x="-23" y="-38" width="5" height="9" fill="#ffb000" opacity="'+sig+'"/><rect x="-23" y="29" width="5" height="9" fill="#ffb000" opacity="'+sig+'"/>';
+ return h+'</g>'}
+function marr(pts,ok,da){return '<polyline points="'+pts+'" fill="none" stroke="'+(ok?'#3fbf6a':'#e5473d')+'" stroke-width="4" stroke-dasharray="9 7" stroke-linecap="round" marker-end="url(#'+(ok?'mg':'mr')+')" style="'+da+'"/>'}
+function micon(x,y,ok){return '<g transform="translate('+x+','+y+')"><circle r="15" fill="'+(ok?'#2e9e5b':'#d63a30')+'" stroke="#fff" stroke-width="2.5"/>'+(ok?'<path d="M-7,0L-2,6L8,-6" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>':'<path d="M-6,-6L6,6M6,-6L-6,6" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>')+'</g>'}
+function mkview(st,s,op){var kl=UI[lang].kl,n=s.n,k=s.k,da='stroke-dashoffset:'+(-t/25)+'px',
+ o='<defs><marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3fbf6a"/></marker><marker id="mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e5473d"/></marker></defs>';
+ o+=mroad(n);
+ o+=mtx(180,22,'middle',16,(n+1)+'. '+W[n].t);
+ if(n<4)o+=mtx([196,190,150,196][n],44,'start',13,['922','920','921','928'][n]);else o+=mtx(285,140,'start',13,'943')+mtx(285,380,'start',13,'944');
+ if(st.cy>-100)o+=mcar2(st.cx,st.cy,0,'#9a8478',0);
+ if(st.by>-100&&st.by<580)o+=mcar2(st.bx,st.by,st.ba,'#dcdcdc',0);
+ o+=mcar2(st.ax,st.ay,st.aa,'var(--me)',st.sg>.5?(Math.floor(t/350)%2?1:.25):0);
+ if(k!==undefined){o+='<g style="opacity:'+op+'">';
+  if(k==0)o+=marr('228,330 180,285 132,240',1,da)+micon(180,285,1)+mtx(180,352,'middle',14,kl.k0);
+  if(k==1)o+=marr('228,318 188,272 150,226',0,da)+micon(180,262,0)+mtx(136,200,'middle',14,kl.k1);
+  if(k==2)o+=marr('180,318 140,270 100,225',0,da)+micon(140,270,0)+mtx(100,200,'middle',14,kl.k2);
+  if(k==3)o+=marr('228,385 182,360 132,335',1,da)+micon(182,360,1)+mtx(200,440,'end',12,kl.k3a)+marr('132,112 182,140 222,170',0,da)+micon(182,140,0)+mtx(340,200,'end',12,kl.k3b);
+  if(k==4)o+=micon(240,362,1)+mtx(250,335,'middle',12,kl.k4);
+  if(k==5)o+=micon(240,112,0)+mtx(230,85,'middle',12,kl.k5);
+  o+='</g>'}
+ return o}
+function mkdraw(p){var s=p.s,e=p.e,fr=s.from,to=s.to,st={};MKK.forEach(function(k){st[k]=fr[k]+(to[k]-fr[k])*e});
+ $("ks").innerHTML=mkview(st,s,((t-s.a)%1600)<1200?1:0);
+ items.forEach(function(li,i){li.className=i==s.n?"on":""});
+ $("tip").textContent=(s.k!==undefined&&W[s.n].c)?W[s.n].c:W[s.n].d;dyn()}
 var SC={
+ mir:{bg:"",W:MIR,ui:"mir",mir:1,S:MIRS},
+ mk:{bg:"",W:MKW,ui:"mk",mk:1,S:MKS},
  par:{bg:bgPar,W:PAR,start:[-90,240,0],kin:1,r0:[-119,240,0],ui:"par",
   S:PARS,
   A:[[{cp:1,l:[8,-10],to:[480,286],m:1,lab:{t:"L",L:[474,272,"end"],P:[290,190,"end"]}}],
@@ -192,9 +322,9 @@ var SC={
 };
 /* ---------- engine ---------- */
 var lang="lv",key="par",cur,S,A,W,T=0,t=0,playing=true,speed=1,last=null,speeds=[1,.5,2],si=0,port=false,page="home";
-function load(k){key=k;cur=SC[k];S=cur.S;A=cur.A;T=0;S.forEach(function(s,i){s.a=T;T+=s.d;s.from=i?S[i-1].to:cur.start});if(cur.kin)prep();$("bg").innerHTML=cur.bg;t=0;playing=true;mkItems(cur.W.ru.length)}
+function load(k){key=k;cur=SC[k];S=cur.S;A=cur.A;T=0;S.forEach(function(s,i){s.a=T;T+=s.d;s.from=i?S[i-1].to:cur.start});if(cur.kin)prep();$("bg").innerHTML=cur.bg;t=0;playing=true;if(cur.mir)mprep();if(cur.mk)mkprep();$("s").style.display=(cur.mir||cur.mk)?"none":"";$("ms").style.display=cur.mir?"":"none";$("ks").style.display=cur.mk?"":"none";$("wh").style.display=(cur.mir||cur.mk)?"none":"";mkItems(cur.W.ru.length)}
 function ease(u){return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2}
-function pose(t){for(var i=0;i<S.length;i++){var s=S[i];if(t<=s.a+s.d||i==S.length-1){var u=Math.min(1,Math.max(0,(t-s.a)/s.d)),e=s.l?u:ease(u);if(cur.kin)return kin(s,u);return{st:s.st||0,g:s.r?-1:(s.to[0]!=s.from[0]||s.to[1]!=s.from[1]?1:0),x:s.from[0]+(s.to[0]-s.from[0])*e,y:s.from[1]+(s.to[1]-s.from[1])*e,a:s.from[2]+(s.to[2]-s.from[2])*e,s:s}}}}
+function pose(t){for(var i=0;i<S.length;i++){var s=S[i];if(t<=s.a+s.d||i==S.length-1){var u=Math.min(1,Math.max(0,(t-s.a)/s.d)),e=s.l?u:ease(u);if(cur.mir||cur.mk)return{s:s,u:u,e:e};if(cur.kin)return kin(s,u);return{st:s.st||0,g:s.r?-1:(s.to[0]!=s.from[0]||s.to[1]!=s.from[1]?1:0),x:s.from[0]+(s.to[0]-s.from[0])*e,y:s.from[1]+(s.to[1]-s.from[1])*e,a:s.from[2]+(s.to[2]-s.from[2])*e,s:s}}}}
 function wp(P,l){var r=P[2]*Math.PI/180,c=Math.cos(r),s=Math.sin(r);return[P[0]+l[0]*c-l[1]*s,P[1]+l[0]*s+l[1]*c]}
 var items=[];function mkItems(n){$("st").innerHTML="";items=[];for(var i=0;i<n;i++)items.push(mk(i))}
 function mk(i){var li=document.createElement("li"),b=document.createElement("button");
@@ -226,7 +356,7 @@ function arrowsOld(p){var g=$("ar"),k=p.s.k,x=$("at");
  d.setAttribute("cx",f[0]);d.setAttribute("cy",f[1]);o.setAttribute("cx",a.to[0]);o.setAttribute("cy",a.to[1]);
  if(a.t){var q=port?a.lpP:a.lpL;x.setAttribute("x",q[0]);x.setAttribute("y",q[1]);x.setAttribute("text-anchor",q[2]);x.textContent=UI[lang].lab[a.t]}else x.textContent=""}
 function dyn(){var u=UI[lang];$("pp").textContent=t>=T?u.again:playing?u.pause:u.resume;$("sp").textContent=u.speed+(speed==.5?"0,5":speed)+"×"}
-function draw(){var p=pose(t);
+function draw(){var p=pose(t);if(cur.mir){mirror(p);return}if(cur.mk){mkdraw(p);return}
  $("car").setAttribute("transform","translate("+p.x+","+p.y+") rotate("+p.a+")");
  var rev=p.s.r&&t<T;$("rl1").setAttribute("fill",rev?"#fff":"#e5473d");$("rl2").setAttribute("fill",rev?"#fff":"#e5473d");
  var pts=[];for(var q=0;q<=t;q+=60){var o=pose(q),r=o.a*Math.PI/180;pts.push((o.x-50*Math.cos(r)).toFixed(1)+","+(o.y-50*Math.sin(r)).toFixed(1))}
@@ -244,15 +374,15 @@ $("pp").onclick=function(){if(t>=T){t=0;playing=true;return}playing=!playing};
 $("rs").onclick=function(){t=0;playing=true};
 $("sp").onclick=function(){si=(si+1)%3;speed=speeds[si]};
 function txt(){var u=UI[lang];W=cur.W[lang];
- ["n1","n2","n3","lg","h1","lead","c1","c2","c3","d1","d2","d3","f1"].forEach(function(k){$(k).textContent=u[k]});
+ ["n1","n2","n3","n4","n5","g1","g2","g3","lg","h1","lead","c1","c2","c3","d1","d2","d3","e1","e2","e3","f1"].forEach(function(k){$(k).textContent=u[k]});
  $("rs").textContent=u.reset;
  var su=u[cur.ui];$("ph").textContent=su.ph;$("psub").textContent=su.psub;
  document.documentElement.lang=lang;$("s").setAttribute("aria-label",su.ph);
  document.title="GoDrive – "+(page=="home"?u.h1:su.ph);
  items.forEach(function(li,i){li.firstChild.innerHTML="<b>"+(i+1)+". "+W[i].t+"</b><span>"+W[i].d+"</span>"})}
-function route(){var h=location.hash;page=h=="#parking"?"par":h=="#reverse"?"rev":"home";
+function route(){var h=location.hash;page=h=="#parking"?"par":h=="#reverse"?"rev":h=="#mirrors"?"mir":h=="#markings"?"mk":"home";
  $("home").hidden=page!="home";$("lesson").hidden=page=="home";
- $("n1").className=page=="home"?"on":"";$("n2").className=page=="par"?"on":"";$("n3").className=page=="rev"?"on":"";
+ $("n1").className=page=="home"?"on":"";$("n2").className=page=="par"?"on":"";$("n3").className=page=="rev"?"on":"";$("n4").className=page=="mir"?"on":"";$("n5").className=page=="mk"?"on":"";
  if(page!="home"){load(page);setMode()}
  txt();window.scrollTo(0,0)}
 $("lg").onclick=function(){lang=lang=="lv"?"ru":"lv";txt()};
