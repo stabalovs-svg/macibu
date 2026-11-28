@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-<!-- build: v11 mirror: rear edge ends in body, tail light on edge, 2026-11-22 -->
+<!-- build: v13 reverse parking variants 2, 3a, 3b, 2026-11-22 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GoDrive – Mācību materiāli</title>
@@ -48,6 +48,7 @@ li.on button{border-color:var(--sig);box-shadow:inset 0 0 0 2px var(--sig)}
 #whs{width:56px;height:56px;flex:none;border:0;border-radius:0;max-height:none}
 #wh b{display:block}#wh span{color:var(--mute);font-size:.9rem}
 .hl{paint-order:stroke;stroke:#000;stroke-opacity:.65;stroke-width:3px}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.seg button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px;min-height:40px;cursor:pointer}.seg button.on{background:var(--sig);border-color:var(--sig);color:#14212e;font-weight:700}
 footer{border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
 footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
 [hidden]{display:none!important}
@@ -71,6 +72,7 @@ footer div{max-width:1080px;margin:0 auto;padding:16px;display:flex;gap:12px;fle
 </section>
 <section id="lesson" hidden>
  <h1 id="ph"></h1><p class="sub" id="psub"></p>
+ <div class="seg" id="vr" hidden></div>
  <div class="lay">
   <svg id="s" viewBox="100 0 600 400" role="img">
    <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0b73a"/></marker></defs>
@@ -115,11 +117,11 @@ lv:[
  {t:"Korekcija",d:"Stūre taisni, neliela virzīšanās uz priekšu, lai nostātos vietas vidū."}]};
 var REV={ru:[
  {t:"Исходная позиция",d:"Проедьте мимо места и остановитесь так, чтобы задняя часть вашей машины была на линии дальнего борта соседней машины, в 1–1,5 м от ряда стоящих машин.",c:"Контрольная точка: задняя часть вашей машины на воображаемой линии дальнего борта соседней машины; до ряда стоящих машин 1–1,5 м."},
- {t:"Руль влево до упора",d:"Поверните руль влево до упора и продолжайте движение назад, пока в обоих боковых зеркалах не увидите дальние задние внутренние углы соседних машин на одинаковом расстоянии от вашей.",c:"Контрольная точка: остановитесь, когда в правом и левом боковых зеркалах дальние задние внутренние углы припаркованных рядом машин видны на одинаковом расстоянии от вашей машины. В левом боковом зеркале всё время контролируйте расстояние до задней автомашины (красная звёздочка)."},
+ {t:"Руль вправо до упора",d:"Поверните руль вправо до упора и продолжайте движение назад, пока в обоих боковых зеркалах не увидите дальние задние внутренние углы соседних машин на одинаковом расстоянии от вашей.",c:"Контрольная точка: остановитесь, когда в правом и левом боковых зеркалах дальние задние внутренние углы припаркованных рядом машин видны на одинаковом расстоянии от вашей машины. В правом боковом зеркале всё время контролируйте расстояние до задней автомашины (красная звёздочка)."},
  {t:"Выпрямить руль и заехать",d:"Выпрямите руль и заезжайте на место, контролируя расстояние сзади.",c:"Контрольная точка: заезжайте прямо, контролируя расстояние сзади, и остановитесь, не доезжая до бордюра."}],
 lv:[
  {t:"Sākuma pozīcija",d:"Pabrauciet garām vietai un apstājieties tā, lai jūsu automašīnas aizmugure atrastos uz iedomātas līnijas pie kaimiņa automašīnas tālākā sāna, 1–1,5 m no stāvošo automašīnu rindas.",c:"Kontrolpunkts: jūsu automašīnas aizmugure atrodas uz kaimiņa automašīnas tālākā sāna iedomātās līnijas; līdz stāvošo automašīnu rindai ir 1–1,5 m."},
- {t:"Stūre pa kreisi līdz galam",d:"Grieziet stūri pa kreisi līdz galam un turpiniet braukt atpakaļ, līdz abos sānu spoguļos redzat kaimiņu automašīnu tālākos aizmugures iekšējos stūrus vienādā attālumā no jūsu automašīnas.",c:"Kontrolpunkts: apstājieties, kad labajā un kreisajā sānu spogulī stāvošo automašīnu tālākie aizmugures iekšējie stūri redzami vienādā attālumā no jūsu automašīnas. Kreisajā sānu spogulī visu laiku kontrolējiet attālumu līdz aizmugurējai automašīnai (sarkanā zvaigznīte)."},
+ {t:"Stūre pa labi līdz galam",d:"Grieziet stūri pa labi līdz galam un turpiniet braukt atpakaļ, līdz abos sānu spoguļos redzat kaimiņu automašīnu tālākos aizmugures iekšējos stūrus vienādā attālumā no jūsu automašīnas.",c:"Kontrolpunkts: apstājieties, kad labajā un kreisajā sānu spogulī stāvošo automašīnu tālākie aizmugures iekšējie stūri redzami vienādā attālumā no jūsu automašīnas. Labajā sānu spogulī visu laiku kontrolējiet attālumu līdz aizmugurējai automašīnai (sarkanā zvaigznīte)."},
  {t:"Iztaisnot stūri un iebraukt",d:"Iztaisnojiet stūri un iebrauciet vietā, kontrolējot attālumu aizmugurē.",c:"Kontrolpunkts: braucat taisni atpakaļ, kontrolējiet attālumu aizmugurē un apstājieties pirms apmales."}]};
 var REVOLD={ru:[
  {t:"Исходная позиция",d:"Проедьте мимо нужного места и остановитесь параллельно ряду машин, примерно в 2–2,5 м от них.",c:"Контрольная точка: остановитесь, когда через заднее правое стекло виден ближний к свободному месту угол правой соседней машины."},
@@ -138,16 +140,24 @@ var UI={
   c1:"Параллельная парковка",c2:"Анимация вида сверху: пять этапов и визуальные ориентиры для водителя.",c3:"Открыть",
   d1:"Парковка задним ходом",d2:"Заезд задним ходом на место между двумя машинами (как у супермаркета): три этапа и ориентиры.",d3:"Открыть",
   par:{ph:"Параллельная парковка",psub:"Вид сверху: синяя машина паркуется задним ходом между двумя стоящими у бордюра."},
-  rev:{ph:"Парковка задним ходом",psub:"Вид сверху: синяя машина заезжает задним ходом на место между двумя машинами. Место слева от водителя."},
+  rev:{ph:"Парковка задним ходом",psub:"Вид сверху: синяя машина заезжает задним ходом на место между двумя машинами. Место справа от водителя."},
   pause:"Пауза",resume:"Продолжить",again:"Повторить",reset:"Сначала",speed:"Скорость: ",done:"Готово: машина стоит по центру места",f1:"Автошкола GoDrive – учим с 1992 года",
-  lab:{L:"левый задний угол",R:"правый передний угол",B1:"дальний борт соседа",D1:"1–1,5 м",E:"равное расстояние",B2:"расстояние сзади",M:"левое зеркало: контроль"},wh:{g1:"Вперёд",g2:"Задний ход",g0:"Стоим",s:"Руль: ",l:"влево",r:"вправо",c:"прямо",u:"об.",lim:"до упора"},n4:"Зеркала",e1:"Регулировка зеркал",e2:"Как настроить боковые зеркала: горизонт посередине и своя машина на 1/4–1/3 ширины.",e3:"Открыть",mir:{ph:"Регулировка боковых зеркал",psub:"Вид из места водителя: как настроить боковые зеркала, чтобы видеть и соседние полосы, и машины сзади."},ml:{h:"горизонт посередине",c:"своя машина: 1/4–1/3 зеркала",k:"машина сзади всегда у линии горизонта",L:"левое зеркало",R:"правое зеркало",s:"сектор обзора",top:"вид сверху",a:"соседняя полоса",b:"ситуация сзади"},n5:"Разметка",g1:"Дорожная разметка",g2:"Сплошная, прерывистая, двойная и жёлтая линии: где можно пересекать, а где нет.",g3:"Открыть",mk:{ph:"Дорожная разметка",psub:"Вид сверху. Основано на Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), для обучения; не заменяет текст правил."},kl:{k0:"можно: перестроение",k1:"нельзя",k2:"нельзя",k3a:"можно: со стороны прерывистой",k3b:"нельзя: со стороны сплошной",k4:"944: остановка можно",k5:"943: остановка и стоянка запрещены"}},
+  lab:{L:"левый задний угол",R:"правый передний угол",B1:"дальний борт соседа",D1:"1–1,5 м",E:"равное расстояние",B2:"расстояние сзади",M:"правое зеркало: контроль",K1:"не доехали",K2:"переехали",K3:"стоп: слишком близко",K4:"углы сблизились"},wh:{g1:"Вперёд",g2:"Задний ход",g0:"Стоим",s:"Руль: ",l:"влево",r:"вправо",c:"прямо",u:"об.",lim:"до упора"},n4:"Зеркала",e1:"Регулировка зеркал",e2:"Как настроить боковые зеркала: горизонт посередине и своя машина на 1/4–1/3 ширины.",e3:"Открыть",mir:{ph:"Регулировка боковых зеркал",psub:"Вид из места водителя: как настроить боковые зеркала, чтобы видеть и соседние полосы, и машины сзади."},ml:{h:"горизонт посередине",c:"своя машина: 1/4–1/3 зеркала",k:"машина сзади всегда у линии горизонта",L:"левое зеркало",R:"правое зеркало",s:"сектор обзора",top:"вид сверху",a:"соседняя полоса",b:"ситуация сзади"},n5:"Разметка",g1:"Дорожная разметка",g2:"Сплошная, прерывистая, двойная и жёлтая линии: где можно пересекать, а где нет.",g3:"Открыть",mk:{ph:"Дорожная разметка",psub:"Вид сверху. Основано на Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), для обучения; не заменяет текст правил."},kl:{k0:"можно: перестроение",k1:"нельзя",k2:"нельзя",k3a:"можно: со стороны прерывистой",k3b:"нельзя: со стороны сплошной",k4:"944: остановка можно",k5:"943: остановка и стоянка запрещены"},
+  rev2:{ph:"Парковка задним ходом: вариант 2",psub:"Вид сверху. Вариант 2: машина не доехала до исходной позиции и при заднем ходе приближается к левой (коричневой) машине."},
+  rev3:{ph:"Парковка задним ходом: вариант 3а",psub:"Вид сверху. Вариант 3а: исходную позицию переехали; после остановки и выпрямления руля продолжаем как в варианте 1."},
+  rev4:{ph:"Парковка задним ходом: вариант 3б",psub:"Вид сверху. Вариант 3б: исходную позицию переехали; затем нужна поправка вперёд, как в варианте 2."},
+  vr:["Вариант 1","Вариант 2: не доехали","Вариант 3а: переехали","Вариант 3б: переехали + вперёд"]},
  lv:{n1:"Sākums",n2:"Paralēlā",n3:"Atpakaļgaitā",lg:"Русский",h1:"Mācību materiāli",lead:"Autoskolas GoDrive uzskates materiāli gatavošanai praktiskajam eksāmenam.",
   c1:"Paralēlā novietošana",c2:"Animācija no augšas: pieci posmi un vizuālie orientieri autovadītājam.",c3:"Atvērt",
   d1:"Novietošana atpakaļgaitā",d2:"Iebraukšana atpakaļgaitā vietā starp divām automašīnām (kā pie lielveikala): trīs posmi un orientieri.",d3:"Atvērt",
   par:{ph:"Paralēlā novietošana",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu novietojas starp divām automašīnām, kas stāv pie apmales."},
-  rev:{ph:"Novietošana atpakaļgaitā",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu iebrauc vietā starp divām automašīnām. Vieta atrodas pa kreisi no vadītāja."},
+  rev:{ph:"Novietošana atpakaļgaitā",psub:"Skats no augšas: zilā automašīna ar atpakaļgaitu iebrauc vietā starp divām automašīnām. Vieta atrodas pa labi no vadītāja."},
   pause:"Pauze",resume:"Turpināt",again:"Atkārtot",reset:"No sākuma",speed:"Ātrums: ",done:"Gatavs: automašīna stāv vietas vidū",f1:"Autoskola GoDrive – mācām kopš 1992. gada",
-  lab:{L:"kreisais aizmugures stūris",R:"labais priekšējais stūris",B1:"kaimiņa tālākais sāns",D1:"1–1,5 m",E:"vienāds attālums",B2:"attālums aizmugurē",M:"kreisais spogulis: kontrole"},wh:{g1:"Uz priekšu",g2:"Atpakaļgaita",g0:"Stāvam",s:"Stūre: ",l:"pa kreisi",r:"pa labi",c:"taisni",u:"apgr.",lim:"līdz galam"},n4:"Spoguļi",e1:"Spoguļu regulēšana",e2:"Kā noregulēt sānu spoguļus: horizonts pa vidu un sava automašīna 1/4–1/3 platuma.",e3:"Atvērt",mir:{ph:"Sānu spoguļu regulēšana",psub:"Skats no vadītāja vietas: kā noregulēt sānu spoguļus, lai redzētu gan blakus joslas, gan automašīnas aizmugurē."},ml:{h:"horizonts pa vidu",c:"sava automašīna: 1/4–1/3 no spoguļa",k:"automašīna aizmugurē vienmēr pie horizonta",L:"kreisais spogulis",R:"labais spogulis",s:"redzamības sektors",top:"skats no augšas",a:"blakus josla",b:"situācija aizmugurē"},n5:"Marķējums",g1:"Ceļa apzīmējumi",g2:"Nepārtrauktā, pārtrauktā, dubultā un dzeltenā līnija: kur drīkst šķērsot un kur nē.",g3:"Atvērt",mk:{ph:"Ceļa apzīmējumi (līnijas)",psub:"Skats no augšas. Pamatā Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), mācību nolūkos; neaizstāj noteikumu tekstu."},kl:{k0:"drīkst: pārkārtošanās",k1:"aizliegts",k2:"aizliegts",k3a:"drīkst: no pārtrauktās puses",k3b:"aizliegts: no nepārtrauktās puses",k4:"944: apstāties drīkst",k5:"943: apstāties un stāvēt aizliegts"}}};
+  lab:{L:"kreisais aizmugures stūris",R:"labais priekšējais stūris",B1:"kaimiņa tālākais sāns",D1:"1–1,5 m",E:"vienāds attālums",B2:"attālums aizmugurē",M:"labais spogulis: kontrole",K1:"nepabraucām",K2:"pārbraucām",K3:"stop: pārāk tuvu",K4:"stūri tuvu"},wh:{g1:"Uz priekšu",g2:"Atpakaļgaita",g0:"Stāvam",s:"Stūre: ",l:"pa kreisi",r:"pa labi",c:"taisni",u:"apgr.",lim:"līdz galam"},n4:"Spoguļi",e1:"Spoguļu regulēšana",e2:"Kā noregulēt sānu spoguļus: horizonts pa vidu un sava automašīna 1/4–1/3 platuma.",e3:"Atvērt",mir:{ph:"Sānu spoguļu regulēšana",psub:"Skats no vadītāja vietas: kā noregulēt sānu spoguļus, lai redzētu gan blakus joslas, gan automašīnas aizmugurē."},ml:{h:"horizonts pa vidu",c:"sava automašīna: 1/4–1/3 no spoguļa",k:"automašīna aizmugurē vienmēr pie horizonta",L:"kreisais spogulis",R:"labais spogulis",s:"redzamības sektors",top:"skats no augšas",a:"blakus josla",b:"situācija aizmugurē"},n5:"Marķējums",g1:"Ceļa apzīmējumi",g2:"Nepārtrauktā, pārtrauktā, dubultā un dzeltenā līnija: kur drīkst šķērsot un kur nē.",g3:"Atvērt",mk:{ph:"Ceļa apzīmējumi (līnijas)",psub:"Skats no augšas. Pamatā Ceļu satiksmes noteikumi (MK noteikumi Nr. 279), mācību nolūkos; neaizstāj noteikumu tekstu."},kl:{k0:"drīkst: pārkārtošanās",k1:"aizliegts",k2:"aizliegts",k3a:"drīkst: no pārtrauktās puses",k3b:"aizliegts: no nepārtrauktās puses",k4:"944: apstāties drīkst",k5:"943: apstāties un stāvēt aizliegts"},
+  rev2:{ph:"Novietošana atpakaļgaitā: 2. variants",psub:"Skats no augšas. 2. variants: automašīna nepabrauca līdz sākuma pozīcijai un, braucot atpakaļ, tuvojas kreisajai (brūnajai) automašīnai."},
+  rev3:{ph:"Novietošana atpakaļgaitā: 3.a variants",psub:"Skats no augšas. 3.a variants: sākuma pozīcija pārbraukta; pēc apstāšanās un stūres iztaisnošanas turpinām kā 1. variantā."},
+  rev4:{ph:"Novietošana atpakaļgaitā: 3.b variants",psub:"Skats no augšas. 3.b variants: sākuma pozīcija pārbraukta; pēc tam vajadzīga korekcija uz priekšu, kā 2. variantā."},
+  vr:["1. variants","2. variants: nepabraucām","3.a variants: pārbraucām","3.b variants: pārbraucām + uz priekšu"]}};
 /* ---------- scenes ---------- */
 function pk(x,c){return '<g transform="translate('+x+',277) rotate(90)"><rect x="-50" y="-22" width="100" height="44" rx="8" fill="'+c+'"/><rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".25"/></g>'}
 var bgPar='<rect x="-100" width="1100" height="330" fill="var(--road)"/><rect x="-100" y="330" width="1100" height="70" fill="var(--walk)"/><rect x="-100" y="328" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="150" x2="1000" y2="150" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".8"/><rect x="200" y="286" width="100" height="44" rx="8" fill="var(--p2)"/><rect x="270" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="480" y="286" width="100" height="44" rx="8" fill="var(--p1)"/><rect x="550" y="291" width="16" height="34" rx="3" fill="#000" opacity=".25"/><rect x="305" y="284" width="170" height="46" rx="6" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6" opacity=".8"/>';
@@ -170,7 +180,7 @@ function wheel(p){var d=p.st||0,u=UI[lang].wh;sw+=(d-sw)*.3;
  $("fw2").setAttribute("transform","translate(28,23) rotate("+sw.toFixed(1)+")");
  var an=sw*15;$("whg").setAttribute("transform","rotate("+an.toFixed(1)+")");
  $("wl").textContent=p.g>0?u.g1:p.g<0?u.g2:u.g0;
- $("wv").textContent=u.s+(Math.abs(an)<10?u.c:(an>0?u.r:u.l)+" "+(Math.abs(d)>=31?u.lim+", ":"")+(Math.abs(an)/360).toFixed(1).replace(".",",")+" "+u.u)}
+ $("wv").textContent=u.s+(Math.abs(an)<10?u.c:(an>0?u.r:u.l)+" "+(Math.abs(d)>=29?u.lim+", ":"")+(Math.abs(an)/360).toFixed(1).replace(".",",")+" "+u.u)}
 var REVS=(function(){var s=[{n:0,to:[486,218,0],d:3200,r:0},{n:0,to:[486,218,0],d:5000,r:0,k:0}];
  for(var th=15;th<=90;th+=15){var r=th*Math.PI/180,ax=457-102*Math.sin(r),ay=116+102*Math.cos(r);s.push({n:1,to:[ax+29*Math.cos(r),ay+29*Math.sin(r),th],d:450,r:1,l:1,k:4,st:-32})}
  s.push({n:1,to:s[s.length-1].to,d:5000,r:0,k:1},{n:2,to:[355,113,90],d:2000,r:1},{n:2,to:[355,113,90],d:5000,r:0,k:2});return s})();
@@ -304,16 +314,76 @@ function mkdraw(p){var s=p.s,e=p.e,fr=s.from,to=s.to,st={};MKK.forEach(function(
  $("ks").innerHTML=mkview(st,s,((t-s.a)%1600)<1200?1:0);
  items.forEach(function(li,i){li.className=i==s.n?"on":""});
  $("tip").textContent=(s.k!==undefined&&W[s.n].c)?W[s.n].c:W[s.n].d;dyn()}
+var DR=Math.atan(57/102)*180/Math.PI;
+function pk3(x,c){return '<g transform="translate('+x+',287) rotate(90)"><rect x="-50" y="-22" width="100" height="44" rx="8" fill="'+c+'"/><rect x="2" y="-17" width="18" height="34" rx="3" fill="#000" opacity=".25"/></g>'}
+function ln3(x){return '<line x1="'+x+'" y1="230" x2="'+x+'" y2="337" stroke="var(--mark)" stroke-width="2" opacity=".8"/>'}
+var bgRev3='<rect x="-100" y="-100" width="1100" height="500" fill="var(--road)"/><rect x="-100" y="355" width="1100" height="145" fill="var(--walk)"/><rect x="-100" y="353" width="1100" height="4" fill="var(--mark)" opacity=".7"/><line x1="-100" y1="60" x2="1000" y2="60" stroke="var(--mark)" stroke-width="3" stroke-dasharray="28 22" opacity=".6"/>'+ln3(266.5)+ln3(318)+ln3(392)+ln3(443.5)+'<rect x="318" y="230" width="74" height="107" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="6 6"/>'+pk3(237,"var(--p1)")+pk3(296,"var(--p2)")+pk3(414,"var(--p1)")+pk3(473,"var(--p2)");
+var REVS2=[{n:0,d:3200,dist:576,st:0},{n:0,d:5000,k:0},{n:1,d:700,st:DR},{n:1,d:3600,dist:ad(-90,DR),st:DR,k:3},{n:1,d:5000,k:1},{n:2,d:600,st:0},{n:2,d:2000,dist:-36,st:0},{n:2,d:5000,k:2}];
+var REVA2=[
+ [{f:[436,237],to:[436,156],m:0,lab:{t:"B1",L:[442,140,"start"],P:[156,232,"end"]}},{f:[510,237],to:[510,200],m:2,lab:{t:"D1",L:[518,220,"start"],P:[228,106,"end"]}}],
+ [{cp:1,l:[25,24],to:[392,337],m:1},{cp:1,l:[25,-24],to:[318,337],m:1,lab:{t:"E",L:[355,174,"middle"],P:[185,300,"end"]}},{cp:1,l:[25,24],to:[392,237],m:3,lab:{t:"M",L:[402,122,"start"],P:[5,268,"start"]}}],
+ [{f:[355,337],to:[355,355],m:2,lab:{t:"B2",L:[366,366,"start"],P:[392,270,"end"]}}],
+ [{cp:1,l:[25,24],to:[392,237],m:3,lab:{t:"M",L:[402,122,"start"],P:[5,268,"start"]}}]];
+var REV2W={ru:[
+ {t:"Не доехали до исходной позиции",d:"Задняя часть машины остановилась раньше линии дальнего борта соседней машины.",c:"Контрольная точка: задняя часть не дошла до воображаемой линии. При заднем ходе машина будет приближаться к левой (коричневой) машине."},
+ {t:"Опасное сближение: стоп",d:"Руль вправо до упора, задний ход. Если машина опасно приближается к левой (коричневой) машине, остановитесь.",c:"Контрольная точка: стоп в непосредственной близости от левой машины (красная звёздочка)."},
+ {t:"Руль влево, первая передача",d:"Поверните руль влево до упора, включите первую передачу и немного проедьте вперёд, пока в обоих боковых зеркалах дальние внутренние углы соседних машин не окажутся на одинаковом расстоянии.",c:"Контрольная точка: в обоих боковых зеркалах дальние внутренние углы соседних машин на одинаковом расстоянии."},
+ {t:"Задняя передача и заезд",d:"Включите заднюю передачу, выпрямите руль и заезжайте на место, контролируя расстояние сзади.",c:"Контрольная точка: заезжайте прямо, контролируя расстояние сзади, и остановитесь, не доезжая до бордюра."}],
+lv:[
+ {t:"Nepabraucām līdz sākuma pozīcijai",d:"Automašīnas aizmugure apstājās pirms kaimiņa automašīnas tālākā sāna līnijas.",c:"Kontrolpunkts: aizmugure nesasniedz iedomāto līniju. Braucot atpakaļ, automašīna tuvosies kreisajai (brūnajai) automašīnai."},
+ {t:"Bīstama tuvošanās: stop",d:"Stūre pa labi līdz galam, atpakaļgaita. Ja automašīna bīstami tuvojas kreisajai (brūnajai) automašīnai, apstājieties.",c:"Kontrolpunkts: apstāšanās tieši pie kreisās automašīnas (sarkanā zvaigznīte)."},
+ {t:"Stūre pa kreisi, pirmais ātrums",d:"Grieziet stūri pa kreisi līdz galam, ieslēdziet pirmo ātrumu un nedaudz brauciet uz priekšu, līdz abos sānu spoguļos kaimiņu automašīnu tālākie iekšējie stūri redzami vienādā attālumā.",c:"Kontrolpunkts: abos sānu spoguļos kaimiņu automašīnu tālākie iekšējie stūri ir vienādā attālumā."},
+ {t:"Atpakaļgaita un iebraukšana",d:"Ieslēdziet atpakaļgaitu, iztaisnojiet stūri un iebrauciet vietā, kontrolējot attālumu aizmugurē.",c:"Kontrolpunkts: braucat taisni atpakaļ, kontrolējiet attālumu aizmugurē un apstājieties pirms apmales."}]};
+var REV3W={ru:[
+ {t:"Переехали исходную позицию",d:"Задняя часть машины остановилась дальше линии дальнего борта соседней машины.",c:"Контрольная точка: задняя часть дальше линии. Задним ходом машина будет сближаться с ближней (правой) машиной."},
+ {t:"Опасное сближение: стоп",d:"Руль вправо до упора, задний ход. Если машина опасно сближается с ближней (правой) машиной, остановитесь.",c:"Контрольная точка: стоп вблизи ближней машины (красная звёздочка)."},
+ {t:"Руль прямо и назад",d:"Выпрямите руль и продолжайте движение назад, пока задний правый угол вашей машины не сблизится с левым передним углом ближайшей к месту машины.",c:"Контрольная точка: задний правый угол вашей машины рядом с левым передним углом ближайшей к месту машины."},
+ {t:"Руль вправо, дальше как в варианте 1",d:"Верните руль в крайнее правое положение и продолжайте назад, пока в обоих зеркалах дальние внутренние углы соседних машин не окажутся на одинаковом расстоянии.",c:"Контрольная точка: в обоих зеркалах дальние внутренние углы соседних машин на одинаковом расстоянии."},
+ {t:"Выпрямить руль и заехать",d:"Выпрямите руль и заезжайте на место, контролируя расстояние сзади.",c:"Контрольная точка: заезжайте прямо, контролируя расстояние сзади, и остановитесь, не доезжая до бордюра."}],
+lv:[
+ {t:"Pārbraucām sākuma pozīciju",d:"Automašīnas aizmugure apstājās aiz kaimiņa automašīnas tālākā sāna līnijas.",c:"Kontrolpunkts: aizmugure ir pāri līnijai. Braucot atpakaļ, automašīna tuvosies tuvākajai (labajai) automašīnai."},
+ {t:"Bīstama tuvošanās: stop",d:"Stūre pa labi līdz galam, atpakaļgaita. Ja automašīna bīstami tuvojas tuvākajai (labajai) automašīnai, apstājieties.",c:"Kontrolpunkts: apstāšanās pie tuvākās automašīnas (sarkanā zvaigznīte)."},
+ {t:"Stūre taisni un atpakaļ",d:"Iztaisnojiet stūri un turpiniet braukt atpakaļ, līdz jūsu automašīnas aizmugurējais labais stūris tuvojas vietai tuvākās automašīnas kreisajam priekšējam stūrim.",c:"Kontrolpunkts: jūsu aizmugurējais labais stūris ir pie vietai tuvākās automašīnas kreisā priekšējā stūra."},
+ {t:"Stūre pa labi, tālāk kā 1. variantā",d:"Atgrieziet stūri galējā labajā pozīcijā un turpiniet atpakaļ, līdz abos spoguļos kaimiņu automašīnu tālākie iekšējie stūri redzami vienādā attālumā.",c:"Kontrolpunkts: abos spoguļos kaimiņu automašīnu tālākie iekšējie stūri ir vienādā attālumā."},
+ {t:"Iztaisnot stūri un iebraukt",d:"Iztaisnojiet stūri un iebrauciet vietā, kontrolējot attālumu aizmugurē.",c:"Kontrolpunkts: braucat taisni atpakaļ, kontrolējiet attālumu aizmugurē un apstājieties pirms apmales."}]};
+var REV4W={ru:REV3W.ru.slice(0,3).concat([
+ {t:"Руль вправо: опасное сближение",d:"Верните руль в крайнее правое положение и продолжайте назад. Если машина опасно сближается с левой (коричневой) машиной, остановитесь.",c:"Контрольная точка: стоп вблизи левой машины (красная звёздочка)."},REV2W.ru[2],REV2W.ru[3]]),
+lv:REV3W.lv.slice(0,3).concat([
+ {t:"Stūre pa labi: bīstama tuvošanās",d:"Atgrieziet stūri galējā labajā pozīcijā un turpiniet atpakaļ. Ja automašīna bīstami tuvojas kreisajai (brūnajai) automašīnai, apstājieties.",c:"Kontrolpunkts: apstāšanās pie kreisās automašīnas (sarkanā zvaigznīte)."},REV2W.lv[2],REV2W.lv[3]])};
+var REV2S=[{n:0,d:3200,dist:526,st:0},{n:0,d:5000,k:0},{n:1,d:700,st:DR},{n:1,d:2600,dist:ad(-49,DR),st:DR},{n:1,d:5000,k:1},{n:2,d:700,st:-DR},{n:2,d:1800,dist:ad(-41,-DR),st:-DR},{n:2,d:5000,k:2},{n:3,d:600,st:0},{n:3,d:2600,dist:-169.8,st:0},{n:3,d:5000,k:3}];
+var REV2A=[
+ [{f:[436,237],to:[436,156],m:0},{f:[386,146],to:[436,146],m:2,lab:{t:"K1",L:[411,134,"middle"],P:[130,236,"end"]}}],
+ [{cp:1,l:[-50,6],to:[318,237],m:3,lab:{t:"K3",L:[300,226,"end"],P:[225,350,"end"]}}],
+ [{cp:1,l:[25,24],to:[392,337],m:1},{cp:1,l:[25,-24],to:[318,337],m:1,lab:{t:"E",L:[355,52,"middle"],P:[175,300,"start"]}}],
+ [{f:[355,337],to:[355,355],m:2,lab:{t:"B2",L:[366,366,"start"],P:[392,270,"end"]}}]];
+var REV3S=[{n:0,d:3200,dist:589,st:0},{n:0,d:5000,k:0},{n:1,d:700,st:DR},{n:1,d:1800,dist:ad(-28,DR),st:DR},{n:1,d:5000,k:1},{n:2,d:600,st:0},{n:2,d:900,dist:-15,st:0},{n:2,d:5000,k:2},{n:3,d:600,st:DR},{n:3,d:2400,dist:ad(-62,DR),st:DR},{n:3,d:5000,k:3},{n:4,d:600,st:0},{n:4,d:1500,dist:-37,st:0},{n:4,d:5000,k:4}];
+var REV3A=[
+ [{f:[436,237],to:[436,148],m:0},{f:[436,138],to:[449,138],m:2,lab:{t:"K2",L:[456,134,"start"],P:[140,222,"end"]}}],
+ [{f:[414,212],to:[414,237],m:3,lab:{t:"K3",L:[430,230,"start"],P:[222,250,"end"]}}],
+ [{cp:1,l:[-50,22],to:[392,237],m:2,lab:{t:"K4",L:[380,212,"end"],P:[205,262,"end"]}}],
+ [{cp:1,l:[25,24],to:[392,337],m:1},{cp:1,l:[25,-24],to:[318,337],m:1,lab:{t:"E",L:[355,174,"middle"],P:[185,300,"end"]}}],
+ [{f:[355,337],to:[355,355],m:2,lab:{t:"B2",L:[366,366,"start"],P:[392,270,"end"]}}]];
+var REV4S=[{n:0,d:3200,dist:589,st:0},{n:0,d:5000,k:0},{n:1,d:700,st:DR},{n:1,d:1800,dist:ad(-28,DR),st:DR},{n:1,d:5000,k:1},{n:2,d:600,st:0},{n:2,d:1400,dist:-25.5,st:0},{n:2,d:5000,k:2},{n:3,d:600,st:DR},{n:3,d:2000,dist:ad(-44.3,DR),st:DR},{n:3,d:5000,k:3},{n:4,d:700,st:-DR},{n:4,d:1200,dist:ad(-17.7,-DR),st:-DR},{n:4,d:5000,k:4},{n:5,d:600,st:0},{n:5,d:2600,dist:-94.1,st:0},{n:5,d:5000,k:5}];
+var REV4A=[REV3A[0],REV3A[1],REV3A[2],
+ [{f:[323,266],to:[318,266],m:3,lab:{t:"K3",L:[300,226,"end"],P:[230,352,"end"]}}],
+ [{cp:1,l:[25,24],to:[392,337],m:1},{cp:1,l:[25,-24],to:[318,337],m:1,lab:{t:"E",L:[355,126,"middle"],P:[255,300,"start"]}}],
+ REV3A[4]];
+var RV=['rev','rev2','rev3','rev4'],RH=['#reverse','#reverse2','#reverse3','#reverse4'];
+function buildChips(){var v=$("vr"),on=RV.indexOf(page);if(on<0){v.hidden=true;return}v.hidden=false;v.innerHTML='';
+ UI[lang].vr.forEach(function(lbl,i){var b=document.createElement('button');b.className='s'+(i==on?' on':'');b.textContent=lbl;b.onclick=function(){location.hash=RH[i]};v.appendChild(b)})}
 var SC={
  mir:{bg:"",W:MIR,ui:"mir",mir:1,S:MIRS},
  mk:{bg:"",W:MKW,ui:"mk",mk:1,S:MKS},
+ rev2:{bg:bgRev3,W:REV2W,start:[-90,178,0],kin:1,r0:[-119,178,0],ui:"rev2",S:REV2S,A:REV2A},
+ rev3:{bg:bgRev3,W:REV3W,start:[-90,170,0],kin:1,r0:[-119,170,0],ui:"rev3",S:REV3S,A:REV3A},
+ rev4:{bg:bgRev3,W:REV4W,start:[-90,170,0],kin:1,r0:[-119,170,0],ui:"rev4",S:REV4S,A:REV4A},
  par:{bg:bgPar,W:PAR,start:[-90,240,0],kin:1,r0:[-119,240,0],ui:"par",
   S:PARS,
   A:[[{cp:1,l:[8,-10],to:[480,286],m:1,lab:{t:"L",L:[474,272,"end"],P:[290,190,"end"]}}],
      [{cp:1,l:[25,-24],to:[300,330],m:1,lab:{t:"R",L:[300,354,"middle"],P:[322,338,"end"]}}],
      [{cp:1,l:[-8,-10],to:[480,294],m:1,lab:{t:"L",L:[500,276,"start"],P:[290,190,"end"]}}],
      [{f:[325,270],to:[300,270],m:2}]]},
- rev:{bg:bgRev2,W:REV,start:[-90,218,0],ui:"rev",ly:386,S:REVS,A:REVA,X:{
+ rev:{bg:bgRev3,W:REV,start:[-90,178,0],kin:1,r0:[-119,178,0],ui:"rev",S:REVS2,A:REVA2,X:{
   S:[{n:0,to:[470,150,0],d:3000,r:0},{n:0,to:[470,150,0],d:5000,r:0,k:0},{n:1,to:[436,161,-45],d:2200,r:1},{n:1,to:[436,161,-45],d:5000,r:0,k:1},{n:2,to:[355,165,-90],d:2200,r:1},{n:2,to:[355,165,-90],d:5000,r:0,k:2},{n:3,to:[355,277,-90],d:2400,r:1},{n:3,to:[355,277,-90],d:5000,r:0,k:3},{n:4,to:[355,268,-90],d:1500,r:0}],
   A:[{P:[470,150,0],l:[8,-10],to:[388,227],t:"N1",lpL:[380,216,"end"],lpP:[215,252,"end"]},
      {P:[436,161,-45],l:[25,24],to:[432,227],t:"N2",lpL:[440,246,"start"],lpP:[390,206,"end"]},
@@ -379,10 +449,10 @@ function txt(){var u=UI[lang];W=cur.W[lang];
  var su=u[cur.ui];$("ph").textContent=su.ph;$("psub").textContent=su.psub;
  document.documentElement.lang=lang;$("s").setAttribute("aria-label",su.ph);
  document.title="GoDrive – "+(page=="home"?u.h1:su.ph);
- items.forEach(function(li,i){li.firstChild.innerHTML="<b>"+(i+1)+". "+W[i].t+"</b><span>"+W[i].d+"</span>"})}
-function route(){var h=location.hash;page=h=="#parking"?"par":h=="#reverse"?"rev":h=="#mirrors"?"mir":h=="#markings"?"mk":"home";
+ items.forEach(function(li,i){li.firstChild.innerHTML="<b>"+(i+1)+". "+W[i].t+"</b><span>"+W[i].d+"</span>"});buildChips()}
+function route(){var h=location.hash;page=h=="#parking"?"par":h=="#reverse"?"rev":h=="#mirrors"?"mir":h=="#markings"?"mk":h=="#reverse2"?"rev2":h=="#reverse3"?"rev3":h=="#reverse4"?"rev4":"home";
  $("home").hidden=page!="home";$("lesson").hidden=page=="home";
- $("n1").className=page=="home"?"on":"";$("n2").className=page=="par"?"on":"";$("n3").className=page=="rev"?"on":"";$("n4").className=page=="mir"?"on":"";$("n5").className=page=="mk"?"on":"";
+ $("n1").className=page=="home"?"on":"";$("n2").className=page=="par"?"on":"";$("n3").className=/^rev/.test(page)?"on":"";$("n4").className=page=="mir"?"on":"";$("n5").className=page=="mk"?"on":"";
  if(page!="home"){load(page);setMode()}
  txt();window.scrollTo(0,0)}
 $("lg").onclick=function(){lang=lang=="lv"?"ru":"lv";txt()};
